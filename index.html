@@ -4,138 +4,152 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moh Alfian Azwar Anas - Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-html{scroll-behavior:smooth !important}
-body{scroll-behavior:smooth !important}
-section{scroll-margin-top:90px}
-#home, section:first-of-type{min-height:100vh !important;display:flex;flex-direction:column;justify-content:center}
-a,button{transition:all .3s ease !important}
-a:hover,button:hover{transform:translateY(-3px) scale(1.03) !important;box-shadow:0 10px 25px rgba(0,0,0,.35) !important}
-a:active,button:active{transform:scale(.97) !important}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{background:#000;color:#fff;font-family:'Inter',sans-serif;line-height:1.5}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif}
+html{scroll-behavior:smooth}
+body{background:#000;color:#fff;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer;border:none}
-img{max-width:100%;display:block}
-header{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);border-bottom:1px solid #1a1a1a}
-.nav-wrap{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:12px}
-.logo{width:34px;height:34px;background:#fff;color:#000;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;flex-shrink:0}
-nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
-nav::-webkit-scrollbar{display:none}
-nav a{font-size:13px;font-weight:600;color:#888;padding:8px 12px;border-radius:8px;white-space:nowrap}
-nav a.active,nav a:hover{background:#1c3435;color:#6ab8bf}
-main{max-width:1100px;margin:0 auto;padding:0 16px}
-section{padding:50px 0;border-bottom:1px solid #111}
-.label{color:#5dbcc5;font-size:12px;font-weight:700;letter-spacing:1.5px;margin-bottom:10px}
-h1{font-size:38px;line-height:1.05;font-weight:900;letter-spacing:-1px}
-h2{font-size:26px;font-weight:900;line-height:1.15;margin-bottom:16px}
-p{color:#b0b0b0;font-size:14.5px;line-height:1.65}
-.card{background:#101010;border:1px solid #232323;border-radius:18px;padding:22px}
-.btn{padding:11px 18px;border-radius:10px;font-size:13px;font-weight:700}
-.btn-primary{background:#6ab8bf;color:#0f2e33}
-.btn-dark{background:#1a1a1a;border:1px solid #2e2e2e;color:#fff}
-.hero{display:flex;gap:22px;align-items:center}
-.hero-left{flex:1}
-.badge{display:inline-flex;gap:6px;align-items:center;background:#142514;border:1px solid #254429;color:#7ec87e;font-size:11px;font-weight:700;padding:6px 12px;border-radius:20px;margin-bottom:16px}
-.badge i{width:6px;height:6px;background:#7ec87e;border-radius:50%;display:block}
-.hero-sub{color:#5dbcc5;font-weight:700;font-size:14px;margin:10px 0 18px}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
-.hero-meta{color:#888;font-size:12.5px}
-.hero-meta b{color:#fff}
-.hero-foto{width:260px;height:310px;flex-shrink:0;border-radius:14px;overflow:hidden;background:#e9e9e9}
-.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:center 5%;transform:scale(1.28);transform-origin:center top}
-.about{display:grid;grid-template-columns:1.6fr .95fr;gap:20px;align-items:start}
-.edu{border-left:2px solid #2a2a2a;padding-left:16px;margin:14px 0;position:relative}
-.edu::before{content:'';position:absolute;left:-7px;top:4px;width:12px;height:12px;background:#5dbcc5;border-radius:50%}
-.edu b{color:#fff}
-.edu span{color:#5dbcc5;font-weight:600;font-size:14px}
-.edu small{color:#777;font-size:12px}
-.sertif{margin-top:14px;background:#151515;border:1px solid #222;border-radius:12px;padding:14px;text-align:center;font-size:12.5px;color:#a0a0a0;cursor:pointer}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.proj{display:flex;flex-direction:column}
-.proj-year{background:#142e31;color:#5dbcc5;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;width:fit-content;margin-bottom:12px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0;border-top:1px solid #1e1e1e;padding-top:14px}
-.tags span{background:#1a1a1a;border:1px solid #252525;color:#777;font-size:10px;padding:5px 9px;border-radius:6px}
-.row{display:flex;gap:8px;flex-wrap:wrap}
-.cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.cap{background:#191919;border:1px solid #252525;border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600}
-.cap i{width:6px;height:6px;background:#5dbcc5;border-radius:50%;flex-shrink:0}
-.contact{text-align:center;padding:40px 20px}
-.contact p{max-width:580px;margin:10px auto 20px}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:1000;display:none;padding:16px;overflow-y:auto}
-.modal.open{display:block}
-.modal-box{max-width:900px;margin:20px auto;background:#191919;border:1px solid #2a2a2a;border-radius:18px;overflow:hidden}
-.modal-head{padding:16px 20px;background:#1e1e1e;border-bottom:1px solid #2a2a2a;display:flex;justify-content:space-between;gap:14px;align-items:center}
-.modal-head h3{font-size:16px;line-height:1.3}
-.close{width:34px;height:34px;background:#252525;border:1px solid #333;border-radius:50%;color:#fff;font-size:16px;flex-shrink:0}
-.modal-body{padding:20px}
-.gallery{height:300px;background:#000;border-radius:14px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.gallery img{width:100%;height:100%;object-fit:contain}
-.arrow{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;background:rgba(0,0,0,.7);border:1px solid #333;border-radius:50%;color:#fff;font-size:20px;z-index:2}
-.arrow.l{left:10px}.arrow.r{right:10px}
-.dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:5px;background:rgba(0,0,0,.6);padding:6px 10px;border-radius:20px}
-.dots span{width:6px;height:6px;background:#555;border-radius:50%;cursor:pointer}
-.dots span.on{width:22px;background:#fff}
-.split{display:grid;grid-template-columns:1.6fr .9fr;gap:18px}
-.side{background:#0a0a0a;border:1px solid #1e1e1e;border-radius:14px;padding:18px;height:fit-content}
-.video{aspect-ratio:16/9;background:#000}
-.video iframe{width:100%;height:100%;border:none}
-.cv-box{height:80vh;background:#fff}
-.cv-box iframe{width:100%;height:100%;border:none}
-footer{text-align:center;padding:22px;color:#4a4a4a;font-size:11px;line-height:1.8}
-@media(max-width:768px){
-h1{font-size:28px} h2{font-size:22px} section{padding:34px 0}
-.nav-wrap{padding:10px 12px} .logo{display:none}
-.hero{flex-direction:column-reverse;align-items:stretch}
-.hero-foto{width:100%;max-width:340px;height:300px;margin:0 auto}
-.about,.grid2,.split,.cap-grid{grid-template-columns:1fr}
-.cap-grid{grid-template-columns:1fr 1fr}
-.gallery{height:240px} .modal{padding:10px} .modal-box{margin:0} .cv-box{height:85vh}
-}
+
+/* NAVBAR TENGAH */
+header{position:fixed;top:0;left:0;width:100%;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);z-index:100;border-bottom:1px solid #222;padding:14px 20px;display:flex;justify-content:center;align-items:center;gap:20px}
+.logo{background:#fff;color:#000;font-weight:900;padding:6px 10px;border-radius:8px}
+nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+nav a{padding:8px 16px;border-radius:999px;color:#a7f3d0;font-size:14px;transition:.3s}
+nav a:hover{background:#222;transform:translateY(-2px)}
+nav a.active{background:#0f766e !important;color:#fff !important;transform:scale(1.05);box-shadow:0 5px 15px rgba(0,0,0,.5)}
+
+/* SECTION */
+section{min-height:100vh;padding:120px 20px 60px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;scroll-margin-top:70px}
+h1{font-size:clamp(32px,6vw,56px);line-height:1.1;margin:15px 0}
+h1 span{color:#2dd4bf}
+h2{font-size:32px;margin-bottom:20px}
+p{color:#bbb;line-height:1.7;max-width:650px}
+.badge{background:#0f766e;padding:6px 14px;border-radius:999px;font-size:13px}
+.hero-wrap{display:flex;gap:40px;align-items:center;flex-wrap:wrap;justify-content:center;max-width:1000px}
+.hero-text{text-align:left;flex:1;min-width:280px}
+.hero-img{width:320px;height:380px;object-fit:cover;border-radius:20px;border:3px solid #0f766e;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* TOMBOL ADA ANIMASI */
+.btns{display:flex;gap:12px;margin-top:25px;flex-wrap:wrap}
+.btn{padding:13px 24px;border-radius:999px;font-weight:bold;transition:.3s;display:inline-block}
+.btn-green{background:#14b8a6;color:#fff}
+.btn-white{background:#fff;color:#000}
+.btn:hover{transform:translateY(-4px) scale(1.05);box-shadow:0 12px 25px rgba(20,184,166,.4)}
+.btn:active{transform:scale(.96)}
+
+/* CARD */
+.grid{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:25px}
+.card{background:#111;border:1px solid #222;padding:25px;border-radius:16px;width:280px;text-align:left;transition:.3s}
+.card:hover{transform:translateY(-8px);border-color:#14b8a6}
+.card h3{margin-bottom:10px}
+.card p{font-size:14px}
+.skill{ background:#111;border:1px solid #222;padding:12px 20px;border-radius:999px}
+footer{padding:30px;text-align:center;color:#666;border-top:1px solid #222}
+@media(max-width:700px){.hero-text{text-align:center}.btns{justify-content:center}.hero-img{width:260px;height:310px}}
 </style>
 </head>
 <body>
-<header><div class="nav-wrap"><div class="logo">MA</div><nav id="nav"><a href="#home" class="active">Home</a><a href="#tentang">Tentang</a><a href="#pengalaman">Pengalaman</a><a href="#project">Project</a><a href="#keahlian">Keahlian</a><a href="#kontak">Kontak</a></nav></div></header>
-<main>
-<section id="home"><div class="card hero"><div class="hero-left"><div class="badge"><i></i> OPEN TO WORK</div><h1>Moh Alfian Azwar Anas</h1><div class="hero-sub">Mechatronics • Industrial Automation • Electrical Engineer</div><div class="hero-btns"><button class="btn btn-primary" onclick="document.getElementById('project').scrollIntoView({behavior:'smooth'})">Lihat Project</button><button class="btn btn-dark" onclick="openModal('cvModal')">Lihat CV</button></div><div class="hero-meta">📍 Banyuwangi, Indonesia • <b>Fresh Graduate • IPK 3.46</b></div></div><div class="hero-foto"><img src="https://drive.google.com/thumbnail?id=1RnuAzmKEwMPh2axUGX9ezUf2tQIHWkWs&sz=w800"></div></div></section>
-<section id="tentang"><div class="label">ABOUT ME</div><div class="about"><div><h2>FRESH GRADUATE MEKATRONIKA</h2><p style="margin-bottom:12px">Saya adalah lulusan D-IV Teknologi Rekayasa Mekatronika dari Politeknik Negeri Jember dengan ketertarikan pada Industrial Automation, PLC, Control Panel, dan Instrumentation.</p><p style="margin-bottom:12px">Selama magang di PT Phase Delta Control, saya terlibat langsung dalam perakitan dan wiring panel, instalasi sistem kontrol, pengecekan dan QC perangkat, kalibrasi ATG, troubleshooting, serta pengujian sistem monitoring.</p><p>Selain itu, saya mengembangkan beberapa proyek seperti alat pengering dan penggiling cabai berbasis PLC Outseal sebagai proyek skripsi, serta sistem monitoring greenhouse berbasis ESP32 dan IoT.</p></div><div><div class="card"><div style="color:#5a5a5a;font-size:11px;font-weight:700;letter-spacing:1.2px;margin-bottom:14px">PENDIDIKAN</div><div class="edu"><b>Politeknik Negeri Jember</b><br><span>D-IV Teknologi Rekayasa Mekatronika</span><br><small>2022 - 2026 • IPK: <b style="color:#fff">3.46</b></small></div><div class="edu"><b>MA U Mamba'ul Huda</b><br><span>Pendidikan Agama Islam</span><br><small>2019 - 2022</small></div></div><div class="card" style="margin-top:14px"><div style="color:#5a5a5a;font-size:11px;font-weight:700;letter-spacing:1.2px;margin-bottom:10px">SERTIFIKASI</div><div class="sertif" onclick="openModal('sertifModal')">Sertifikat Kompetensi Engineer Mekatronika — BNSP</div></div></div></div></section>
-<section id="pengalaman"><div class="label">EXPERIENCE</div><h2>Pengalaman Kerja & Magang.</h2><div class="card"><div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><div style="flex:1;min-width:220px"><b style="font-size:16px">Electrical Engineering Intern</b><div style="color:#5dbcc5;font-weight:600;font-size:13.5px;margin:6px 0 12px">PT Phase Delta Control (PDC)</div><p>Terlibat dalam perakitan panel kontrol, instalasi perangkat instrumentasi, serta implementasi sistem digitalisasi pemantauan tangki BBM di SPBU Seduri, Sidoarjo. Melaksanakan pengujian dan QC perangkat ATG, kalibrasi probe tangki, serta inspeksi motorized valve.</p><div class="row" style="margin-top:16px"><button class="btn btn-dark" onclick="openModal('expDetailModal')">Lihat Detail →</button><button class="btn btn-dark" style="color:#7ec87e" onclick="openModal('expDocModal')">Dokumentasi</button></div></div><span style="background:#151515;border:1px solid #2a2a2a;color:#666;font-size:10px;font-weight:700;padding:7px 12px;border-radius:20px;height:fit-content">3 BULAN 20 HARI</span></div></div></section>
-<section id="project"><div class="label">SELECTED WORK</div><h2>Project Unggulan.</h2><div class="grid2">
-<div class="card proj"><span class="proj-year">2026</span><b style="font-size:15px;line-height:1.3">Rancang Bangun Alat Pengering dan Penggiling Cabai Rawit Berbasis PLC Outseal Nano</b><p style="margin-top:10px;flex:1">Perancangan dan implementasi sistem otomatis untuk proses pengeringan, pemindahan, dan penggilingan cabai rawit menggunakan PLC Outseal Nano, dilengkapi kontrol suhu dan mekanisme kerja berurutan.</p><div class="tags"><span>PLC Outseal Nano</span><span>Industrial Automation</span><span>Temperature Control</span><span>Arduino</span><span>Mechanical Design</span><span>+2</span></div><div class="row"><button class="btn btn-dark" style="color:#5dbcc5" onclick="openModal('caseModal')">Lihat Detail →</button><button class="btn btn-dark" style="color:#7ec87e" onclick="openLive()">Live Demo</button></div></div>
-<div class="card proj"><span class="proj-year">2024</span><b style="font-size:15px;line-height:1.3">IoT-Based Greenhouse Monitoring System</b><p style="margin-top:10px;flex:1">Sistem monitoring greenhouse tanaman melon berbasis IoT untuk memantau suhu, kelembapan udara, intensitas cahaya, dan kelembapan tanah secara real-time melalui aplikasi smartphone.</p><div class="tags"><span>IoT</span><span>ESP32</span><span>Sensor Integration</span><span>Firebase</span><span>+1</span></div><div class="row"><button class="btn btn-dark" style="color:#5dbcc5" onclick="openModal('caseModal2')">Lihat Detail →</button></div></div>
-</div></section>
-<section id="keahlian"><div class="label">CAPABILITIES</div><h2>Tech stack & keahlian teknis utama.</h2><div class="card"><div class="cap-grid"><div class="cap"><i></i> Industrial Automation</div><div class="cap"><i></i> IoT Systems</div><div class="cap"><i></i> ESP32 & Arduino</div><div class="cap"><i></i> Basic PLC Programming</div><div class="cap"><i></i> Sensor Integration</div><div class="cap"><i></i> Electrical Panel Wiring</div><div class="cap"><i></i> Embedded Systems</div><div class="cap"><i></i> HMI & Control Systems</div><div class="cap"><i></i> Electrical Drafting</div><div class="cap"><i></i> AutoCAD</div><div class="cap"><i></i> Autodesk Inventor</div><div class="cap"><i></i> 3D CAD Design</div><div class="cap"><i></i> Welding</div><div class="cap"><i></i> CNC Machining</div><div class="cap"><i></i> Vectric Aspire</div><div class="cap"><i></i> 3D Printing</div><div class="cap"><i></i> Microsoft Office</div><div class="cap"><i></i> Electrical Troubleshooting</div></div></div></section>
-<section id="kontak"><div class="card contact"><div class="label">LET'S CONNECT</div><h2>Siap berkolaborasi dan berkoneksi</h2><p>Terbuka untuk peluang kerja full-time, proyek independen, atau diskusi teknis seputar integrasi sistem end-to-end.</p><div class="row" style="justify-content:center"><button class="btn btn-primary" id="btnCopyEmail"><span id="emailText">Salin Email</span></button><a class="btn btn-dark" href="https://www.linkedin.com/in/alfian-azwar" target="_blank">LinkedIn</a><a class="btn btn-dark" href="https://wa.me/6283115861900?text=Halo%20mas%20Alfian" target="_blank">WhatsApp</a></div></div></section>
-</main>
-<footer><p>© 2026 Moh Alfian Azwar Anas. All rights reserved.</p><p>Built with passion for Industrial Automation & IoT.</p></footer>
-<div class="modal" id="caseModal"><div class="modal-box"><div class="modal-head"><div><div style="color:#5dbcc5;font-size:10px;font-weight:700;letter-spacing:1.5px">CASE STUDY</div><h3>Rancang Bangun Alat Pengering dan Penggiling Cabai Rawit Berbasis PLC Outseal Nano</h3></div><button class="close" onclick="closeModal('caseModal')">✕</button></div><div class="modal-body"><div class="gallery"><button class="arrow l" onclick="prevImg()">‹</button><img id="caseImg" src="https://drive.google.com/thumbnail?id=1G5HFezJF5cs5toAFE2XojnihLO66Mhhw&sz=w1000"><button class="arrow r" onclick="nextImg()">›</button><div class="dots" id="caseDots"></div></div><div class="split"><div><h3 style="font-size:14px;margin-bottom:10px">Deskripsi Teknis</h3><p style="margin-bottom:12px">Tugas akhir ini berfokus pada perancangan alat pengering dan penggiling cabai rawit otomatis berbasis PLC Outseal Nano dengan tiga tahap proses terintegrasi: pengeringan, pemindahan, dan penggilingan, dengan kapasitas rancangan hingga 5 kg per proses.</p><p>Proyek ini mencakup perancangan mekanik 3D, perakitan panel kontrol, pemrograman PLC, serta integrasi sensor dan aktuator.</p></div><div class="side"><div style="color:#777;font-size:12px;margin-bottom:6px">Role</div><b>Mechatronics & Automation Engineer</b><div style="color:#777;font-size:12px;margin:18px 0 10px">Stack & Tools</div><div class="tags" style="border:none;padding:0;margin:0"><span>PLC Outseal Nano</span><span>Industrial Automation</span><span>Temperature Control</span><span>Arduino</span></div><button class="btn btn-primary" style="width:100%;margin-top:14px;background:#fff;color:#000" onclick="closeModal('caseModal');openLive()">Lihat Live Demo</button></div></div></div></div></div>
-<div class="modal" id="caseModal2"><div class="modal-box"><div class="modal-head"><div><div style="color:#5dbcc5;font-size:10px;font-weight:700;letter-spacing:1.5px">CASE STUDY</div><h3>IoT-Based Greenhouse Monitoring System</h3></div><button class="close" onclick="closeModal('caseModal2')">✕</button></div><div class="modal-body"><div class="gallery"><button class="arrow l" onclick="prevImg2()">‹</button><img id="caseImg2" src="https://drive.google.com/thumbnail?id=1nL8phfym-yR97OSB8bopUPGeVqxPryVG&sz=w1000"><button class="arrow r" onclick="nextImg2()">›</button><div class="dots" id="caseDots2"></div></div><div class="split"><div><h3 style="font-size:14px;margin-bottom:10px">Deskripsi Teknis</h3><p>Sistem monitoring greenhouse tanaman melon berbasis IoT untuk memantau suhu, kelembapan udara, intensitas cahaya, dan kelembapan tanah secara real-time.</p></div><div class="side"><div style="color:#777;font-size:12px;margin-bottom:6px">Project</div><b>IoT System Development</b><div style="color:#777;font-size:12px;margin:18px 0 10px">Stack & Tools</div><div class="tags" style="border:none;padding:0;margin:0"><span>ESP32</span><span>IoT</span><span>Firebase</span></div></div></div></div></div></div>
-<div class="modal" id="liveDemoModal"><div class="modal-box" style="max-width:860px"><div class="modal-head"><div><div style="color:#7ec87e;font-size:10px;font-weight:700;letter-spacing:1.5px">LIVE DEMO</div><h3>Live Demo - Alat Pengering dan Penggiling Cabai Rawit</h3></div><button class="close" onclick="closeLive()">✕</button></div><div class="video"><iframe id="liveDemoIframe" src="" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div></div>
-<div class="modal" id="expDetailModal"><div class="modal-box"><div class="modal-head"><div><div style="color:#5dbcc5;font-size:10px;font-weight:700">EXPERIENCE DETAIL</div><h3>Electrical Engineering Intern - PT Phase Delta Control (PDC)</h3></div><button class="close" onclick="closeModal('expDetailModal')">✕</button></div><div class="modal-body"><div class="split"><div><h3 style="font-size:14px;margin-bottom:10px">Deskripsi Pekerjaan</h3><p>Selama magang 3 bulan 20 hari di PT Phase Delta Control, saya terlibat dalam proyek digitalisasi SPBU Seduri, Sidoarjo. Fokus utama pada perakitan panel kontrol, instalasi instrumentasi ATG, dan sistem monitoring tangki BBM.</p></div><div class="side"><div style="color:#777;font-size:12px">Perusahaan</div><b>PT Phase Delta Control (PDC)</b><div style="color:#777;font-size:12px;margin-top:14px">Durasi</div><b>3 Bulan 20 Hari</b></div></div></div></div></div>
-<div class="modal" id="expDocModal"><div class="modal-box"><div class="modal-head"><div><div style="color:#7ec87e;font-size:10px;font-weight:700">DOKUMENTASI</div><h3>Dokumentasi Magang - PT Phase Delta Control</h3></div><button class="close" onclick="closeModal('expDocModal')">✕</button></div><div class="modal-body"><div class="gallery"><button class="arrow l" onclick="prevExp()">‹</button><img id="expDocImg" src="https://drive.google.com/thumbnail?id=1G5HFezJF5cs5toAFE2XojnihLO66Mhhw&sz=w1000"><button class="arrow r" onclick="nextExp()">›</button><div class="dots" id="expDocDots"></div></div></div></div></div>
-<div class="modal" id="cvModal"><div class="modal-box" style="max-width:900px"><div class="modal-head"><b>CV - Moh Alfian Azwar Anas</b><button class="close" onclick="closeModal('cvModal')">✕</button></div><div class="cv-box"><iframe src="https://drive.google.com/file/d/1n2cpm2APuC7Z41VP6UR_XykhQfTfw0aL/preview"></iframe></div></div></div>
-<div class="modal" id="sertifModal"><div class="modal-box" style="max-width:1000px"><div class="modal-head"><b>Sertifikat Kompetensi Engineer Mekatronika — BNSP</b><button class="close" onclick="closeModal('sertifModal')">✕</button></div><div class="cv-box"><iframe src="https://drive.google.com/file/d/1wO7qXyQgMQ5IO6FnTBch77n1u9qPZ9rH/preview"></iframe></div></div></div>
+
+<header>
+  <div class="logo">MA</div>
+  <nav id="navbar">
+    <a href="#home" class="active">Home</a>
+    <a href="#tentang">Tentang</a>
+    <a href="#pengalaman">Pengalaman</a>
+    <a href="#project">Project</a>
+    <a href="#keahlian">Keahlian</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section id="home">
+  <div class="hero-wrap">
+    <div class="hero-text">
+      <span class="badge">Halo, Saya</span>
+      <h1>Moh Alfian<br>Azwar <span>Anas</span></h1>
+      <p>Saya adalah mahasiswa & developer yang suka membangun website yang rapi, cepat, dan enak dilihat.</p>
+      <div class="btns">
+        <a href="#project" class="btn btn-green">Lihat Project →</a>
+        <a href="#kontak" class="btn btn-white">Lihat CV</a>
+      </div>
+    </div>
+    <!-- GANTI src DI BAWAH INI DENGAN FOTO MAS -->
+    <img class="hero-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Foto Alfian">
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang">
+  <span class="badge">Tentang Saya</span>
+  <h2>About Me</h2>
+  <p>Halo! Saya Moh Alfian Azwar Anas. Saya fokus di bidang web development dan desain. Saya suka belajar hal baru dan membuat project yang bermanfaat untuk banyak orang.</p>
+  <div class="grid">
+    <div class="card"><h3>🎓 Pendidikan</h3><p>Mahasiswa aktif, fokus di teknologi & pengembangan web.</p></div>
+    <div class="card"><h3>💻 Passion</h3><p>Membuat website modern, responsif, dan interaktif.</p></div>
+    <div class="card"><h3>🎯 Tujuan</h3><p>Menjadi developer profesional yang karyanya dipakai banyak orang.</p></div>
+  </div>
+</section>
+
+<!-- PENGALAMAN -->
+<section id="pengalaman">
+  <span class="badge">Perjalanan Saya</span>
+  <h2>Pengalaman</h2>
+  <div class="grid">
+    <div class="card"><h3>2024 - Sekarang</h3><p><b>Web Developer</b><br>Membuat portfolio & website UMKM.</p></div>
+    <div class="card"><h3>2023 - 2024</h3><p><b>Belajar Frontend</b><br>HTML, CSS, JavaScript & Tailwind.</p></div>
+    <div class="card"><h3>2023</h3><p><b>Project Pertama</b><br>Membuat website pertama dan deploy ke Vercel.</p></div>
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section id="project">
+  <span class="badge">Karya Saya</span>
+  <h2>Project</h2>
+  <div class="grid">
+    <div class="card"><h3>🌐 Portfolio Website</h3><p>Website portfolio pribadi, responsif & animasi halus.</p></div>
+    <div class="card"><h3>🛍️ Website Toko</h3><p>Katalog produk online untuk UMKM.</p></div>
+    <div class="card"><h3>📱 Landing Page</h3><p>Halaman promosi yang cepat dan menarik.</p></div>
+  </div>
+</section>
+
+<!-- KEAHLIAN -->
+<section id="keahlian">
+  <span class="badge">Apa Yang Saya Bisa</span>
+  <h2>Keahlian</h2>
+  <div class="grid">
+    <span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">JavaScript</span><span class="skill">Tailwind</span><span class="skill">GitHub</span><span class="skill">Vercel</span>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <span class="badge">Hubungi Saya</span>
+  <h2>Kontak</h2>
+  <p>Tertarik kerja sama? Hubungi saya di bawah ini.</p>
+  <div class="btns" style="justify-content:center">
+    <a href="https://github.com/anasazwar376-sys" class="btn btn-green">GitHub Saya</a>
+    <a href="mailto:alfian@example.com" class="btn btn-white">Kirim Email</a>
+  </div>
+</section>
+
+<footer>© 2026 Moh Alfian Azwar Anas - Dibuat dengan ❤️</footer>
+
 <script>
-function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
-function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
-document.querySelectorAll('.modal').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m){m.classList.remove('open');document.body.style.overflow=''}})});
-const LIVE="https://drive.google.com/file/d/1cu4iSGYmbODq4ZNt_C0NAI78PDDLgP4p/preview";
-function openLive(){document.getElementById('liveDemoIframe').src=LIVE;openModal('liveDemoModal')}
-function closeLive(){closeModal('liveDemoModal');setTimeout(()=>{document.getElementById('liveDemoIframe').src=''},300)}
-document.querySelectorAll('#nav a').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelectorAll('#nav a').forEach(x=>x.classList.remove('active'));a.classList.add('active');document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})})});
-document.getElementById('btnCopyEmail').addEventListener('click',async()=>{const email='anasazwar376@gmail.com';try{await navigator.clipboard.writeText(email)}catch(e){const ta=document.createElement('textarea');ta.value=email;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove()}document.getElementById('emailText').textContent='Email tersalin!';setTimeout(()=>{document.getElementById('emailText').textContent='Salin Email'},2000)});
-const imgs=["https://drive.google.com/thumbnail?id=1G5HFezJF5cs5toAFE2XojnihLO66Mhhw&sz=w1000","https://drive.google.com/thumbnail?id=1T_e-l5DeqaFjFr-HmOyCtB5NIDE9MQDv&sz=w1000","https://drive.google.com/thumbnail?id=17Iam6Uo-YpC84OWn9WWV5mvtqU0n7AE7&sz=w1000","https://drive.google.com/thumbnail?id=1i4QcKSErGJb-BfMdv7jM5Aug78giLsh4&sz=w1000","https://drive.google.com/thumbnail?id=1l4dVzes-TX2CMXcNR0h4eiwvCDR5fPGd&sz=w1000"];
-let cur=0;function drawDots(el,curIdx,fn){el.innerHTML='';imgs.forEach((_,i)=>{const s=document.createElement('span');if(i===curIdx)s.classList.add('on');s.onclick=()=>{cur=i;fn()};el.appendChild(s)})}
-function up1(){document.getElementById('caseImg').src=imgs[cur];drawDots(document.getElementById('caseDots'),cur,up1)}
-function nextImg(){cur=(cur+1)%imgs.length;up1()}function prevImg(){cur=(cur-1+imgs.length)%imgs.length;up1()}up1();
-const imgs2=["https://drive.google.com/thumbnail?id=1nL8phfym-yR97OSB8bopUPGeVqxPryVG&sz=w1000","https://drive.google.com/thumbnail?id=1qOgJEUgTXRhGIu87P7SdDM5XeNJ_W-r0&sz=w1000","https://drive.google.com/thumbnail?id=1OQnbgRvWDuYbbUzgnfNrbuzfpF3cThKp&sz=w1000"];
-let cur2=0;function up2(){document.getElementById('caseImg2').src=imgs2[cur2];const d=document.getElementById('caseDots2');d.innerHTML='';imgs2.forEach((_,i)=>{const s=document.createElement('span');if(i===cur2)s.classList.add('on');s.onclick=()=>{cur2=i;up2()};d.appendChild(s)})}
-function nextImg2(){cur2=(cur2+1)%imgs2.length;up2()}function prevImg2(){cur2=(cur2-1+imgs2.length)%imgs2.length;up2()}up2();
-const expImgs=["https://drive.google.com/thumbnail?id=1G5HFezJF5cs5toAFE2XojnihLO66Mhhw&sz=w1000","https://drive.google.com/thumbnail?id=1T_e-l5DeqaFjFr-HmOyCtB5NIDE9MQDv&sz=w1000"];
-let curE=0;function upE(){document.getElementById('expDocImg').src=expImgs[curE];const d=document.getElementById('expDocDots');d.innerHTML='';expImgs.forEach((_,i)=>{const s=document.createElement('span');if(i===curE)s.classList.add('on');s.onclick=()=>{curE=i;upE()};d.appendChild(s)})}
-function nextExp(){curE=(curE+1)%expImgs.length;upE()}function prevExp(){curE=(curE-1+expImgs.length)%expImgs.length;upE()}upE();
+// SCROLLSPY - BIKIN MENU NYALA OTOMATIS
+const links = document.querySelectorAll('#navbar a');
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = 'home';
+  sections.forEach(sec => {
+    if(window.scrollY >= sec.offsetTop - 250) current = sec.id;
+  });
+  links.forEach(l => {
+    l.classList.remove('active');
+    if(l.getAttribute('href') === '#'+current) l.classList.add('active');
+  });
+});
 </script>
 </body>
 </html>
