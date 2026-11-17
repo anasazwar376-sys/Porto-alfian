@@ -215,6 +215,23 @@ button, .c-btn, .proj-btn, .b1, .b2, .case-btn-white, .case-btn-dark, .closeBtn,
   -webkit-touch-callout:none !important;
 }
 .case-images{cursor:default !important}
+  /* === MATIIN LONG-PRESS HP - BIAR LENS / CIRCLE TO SEARCH GAK MUNCUL === */
+.case-img-wrap img, #caseImg, #caseImg2, #expDocImg{
+  pointer-events:none !important;
+  cursor:default !important;
+  user-select:none !important;
+  -webkit-user-select:none !important;
+  -webkit-touch-callout:none !important;
+  -webkit-tap-highlight-color:transparent !important;
+  touch-action:manipulation !important;
+  -webkit-user-drag:none !important;
+  draggable:false;
+}
+.case-img-wrap{
+  -webkit-touch-callout:none !important;
+  user-select:none !important;
+  touch-action:manipulation !important;
+}
 </style>
 </head>
 <body>
