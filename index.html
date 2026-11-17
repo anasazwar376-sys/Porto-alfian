@@ -157,17 +157,53 @@ button, .c-btn, .proj-btn, .b1, .b2, .case-btn-white, .case-btn-dark, .closeBtn,
 .closeBtn:hover{transform: translateY(-2px) scale(1.05) !important;background:#2a2a2a !important}
 .case-close:hover{transform: rotate(90deg) translateY(-1px) scale(1.05) !important}
 .case-arrow:hover{transform: translateY(-50%) scale(1.15) !important}
-/* PRELOADER GEAR - HITAM FULL - TANPA NAMA */
-#preloader{position:fixed;inset:0;background:#000 !important;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .6s ease}
+/* === PRELOADER PERSIS VIDEO - 6 GERIGI === */
+#preloader{position:fixed;inset:0;background:#000 !important;z-index:99999;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease}
 #preloader.hide{opacity:0;pointer-events:none}
-.pre-gear{width:120px;height:120px;animation:gearPop 1s cubic-bezier(.34,1.56,.64,1) forwards, gearSpin 2.5s ease-in-out infinite 1s}
-@keyframes gearPop{0%{transform:scale(0) rotate(-90deg);opacity:0}100%{transform:scale(1) rotate(0deg);opacity:1}}
-@keyframes gearSpin{0%,100%{transform:scale(1) rotate(0deg)}50%{transform:scale(1.08) rotate(15deg)}}
-.pre-text{color:#5dbcc5;font-size:13px;font-weight:700;letter-spacing:3px;animation:fadeUp 1s ease .3s both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.pre-bar{width:160px;height:3px;background:#222;border-radius:99px;overflow:hidden}
-.pre-bar i{display:block;height:100%;width:0%;background:#5dbcc5;border-radius:99px;animation:loadBar 3.5s ease forwards}
-@keyframes loadBar{to{width:100%}}
+.pre-gear-wrap{width:180px;height:180px;display:flex;align-items:center;justify-content:center}
+.pre-gear{width:180px;height:180px;animation:gearVideo 6s linear infinite}
+.pre-gear-body{animation:gearColor 6s linear infinite}
+.pre-gear-ring{animation:gearRing 6s linear infinite}
+.pre-gear-center{animation:gearCenter 6s linear infinite}
+@keyframes gearVideo{
+  0%{transform:scale(.18) rotate(-30deg);opacity:.9}
+  12%{transform:scale(.55) rotate(-10deg);opacity:1}
+  20%{transform:scale(1) rotate(0deg)}
+  28%{transform:scale(1.02) rotate(2deg)}
+  38%{transform:scale(1) rotate(0deg)}
+  50%{transform:scale(1) rotate(0deg)}
+  62%{transform:scale(1) rotate(0deg)}
+  78%{transform:scale(1) rotate(0deg)}
+  88%{transform:scale(1.02) rotate(0deg)}
+  100%{transform:scale(1) rotate(0deg)}
+}
+@keyframes gearColor{
+  0%{fill:#8A9AA6}
+  18%{fill:#3D4F5F}
+  38%{fill:#3D4F5F}
+  50%{fill:#9AA5AD}
+  62%{fill:#9AA5AD}
+  72%{fill:#3D4F5F}
+  100%{fill:#3D4F5F}
+}
+@keyframes gearRing{
+  0%{fill:#8A9AA6;opacity:.6}
+  18%{fill:#FFFFFF;opacity:1}
+  38%{fill:#FFFFFF}
+  50%{fill:#3D4F5F}
+  62%{fill:#3D4F5F}
+  72%{fill:#FFFFFF}
+  100%{fill:#FFFFFF}
+}
+@keyframes gearCenter{
+  0%{fill:#C8C84A}
+  18%{fill:#FFC107}
+  38%{fill:#FFC107}
+  50%{fill:#D9C24A}
+  62%{fill:#D9C24A}
+  72%{fill:#FFC107}
+  100%{fill:#FFC107}
+}
 @media(max-width:768px){
   .wrap{scroll-snap-type:none}
   .navbar{position:sticky;top:0;margin:0 auto;padding:10px 0 8px 0;width:100%;background:#000;justify-content:flex-start}
@@ -192,15 +228,15 @@ button, .c-btn, .proj-btn, .b1, .b2, .case-btn-white, .case-btn-dark, .closeBtn,
 </style>
 </head>
 <body>
+<!-- PRELOADER PERSIS VIDEO - HANYA GEAR, TANPA TULISAN, TANPA BAR -->
 <div id="preloader">
-  <svg class="pre-gear" viewBox="0 0 24 24" width="120" height="120" fill="none">
-    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1 -2.83 2.83l-.06-.06a1.65 1.65 0 0 0 -1.82-.33 1.65 1.65 0 0 0 -1 1.51V21a2 2 0 1 1 -4 0v-.09a1.65 1.65 0 0 0 -1-1.51 1.65 1.65 0 0 0 -1.82.33l-.06.06a2 2 0 1 1 -2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0 -1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0 -.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0 -.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0 -1.51 1z" fill="#3d4f5f"/>
-    <circle cx="12" cy="12" r="4.2" fill="#fff"/>
-    <circle cx="12" cy="12" r="3.2" fill="#ffc107"/>
-    <circle cx="12" cy="12" r="1.3" fill="#3d4f5f"/>
-  </svg>
-  <div class="pre-text">LOADING...</div>
-  <div class="pre-bar"><i></i></div>
+  <div class="pre-gear-wrap">
+    <svg class="pre-gear" viewBox="0 0 100 100" fill="none">
+      <path class="pre-gear-body" d="M 38.88 15.76 L 40.02 3.05 L 59.98 3.05 L 61.12 15.76 L 74.09 23.25 L 85.67 17.88 L 95.65 35.17 L 85.21 42.52 L 85.21 57.48 L 95.65 64.83 L 85.67 82.12 L 74.09 76.75 L 61.12 84.24 L 59.98 96.95 L 40.02 96.95 L 38.88 84.24 L 25.91 76.75 L 14.33 82.12 L 4.35 64.83 L 14.79 57.48 L 14.79 42.52 L 4.35 35.17 L 14.33 17.88 L 25.91 23.25 Z" fill="#3D4F5F"/>
+      <circle class="pre-gear-ring" cx="50" cy="50" r="22" fill="#FFFFFF"/>
+      <circle class="pre-gear-center" cx="50" cy="50" r="16.5" fill="#FFC107"/>
+    </svg>
+  </div>
 </div>
 <div class="wrap" id="wrap">
   <div class="navbar"><div class="logo">MA</div><div class="nav" id="nav"><a data-target="home" class="active">Home</a><a data-target="tentang">Tentang</a><a data-target="pengalaman">Pengalaman</a><a data-target="project">Project</a><a data-target="keahlian">Keahlian</a><a data-target="kontak">Kontak</a></div><div style="width:34px;height:34px"></div></div>
@@ -263,9 +299,9 @@ let cur=0;const imgEl=document.getElementById('caseImg');const dotsEl=document.g
 const imgs2=["https://drive.google.com/thumbnail?id=1nL8phfym-yR97OSB8bopUPGeVqxPryVG&sz=w1000","https://drive.google.com/thumbnail?id=1qOgJEUgTXRhGIu87P7SdDM5XeNJ_W-r0&sz=w1000","https://drive.google.com/thumbnail?id=1OQnbgRvWDuYbbUzgnfNrbuzfpF3cThKp&sz=w1000","https://drive.google.com/thumbnail?id=14fLC-3wgtVWCSQbKGZazVmYapQowsm-I&sz=w1000","https://drive.google.com/thumbnail?id=1QxCYbf8kkk-P_IlIGdLrAagIZKjJJ5Wl&sz=w1000","https://drive.google.com/thumbnail?id=1n30RjqxiCJMLH8Tk0iMltoczaOHXisiW&sz=w1000","https://drive.google.com/thumbnail?id=1rV6WlDuU82R6L8MZysvWfPX6KBeZz2dz&sz=w1000","https://drive.google.com/thumbnail?id=1i-NX1LOlaXKK1Uviw7CLqMXp_Dr9PW7h&sz=w1000","https://drive.google.com/thumbnail?id=1f4BcgRl10PZYJqwal4FqNhH3lt7QGBO1&sz=w1000","https://drive.google.com/thumbnail?id=1zcoBfuHx4y0zddgiyPEaat55OEJsRe1v&sz=w1000"];
 let cur2=0;const imgEl2=document.getElementById('caseImg2');const dotsEl2=document.getElementById('caseDots2');function renderDots2(){dotsEl2.innerHTML='';imgs2.forEach((_,i)=>{const s=document.createElement('span');if(i===cur2)s.classList.add('active');s.onclick=()=>{cur2=i;updateGallery2()};dotsEl2.appendChild(s);});}function updateGallery2(){imgEl2.src=imgs2[cur2];renderDots2();}document.getElementById('prevImg2').onclick=()=>{cur2=(cur2-1+imgs2.length)%imgs2.length;updateGallery2()};document.getElementById('nextImg2').onclick=()=>{cur2=(cur2+1)%imgs2.length;updateGallery2()};renderDots2();
 const expDocImgs=["https://drive.google.com/thumbnail?id=1G5HFezJF5cs5toAFE2XojnihLO66Mhhw&sz=w1000","https://drive.google.com/thumbnail?id=1T_e-l5DeqaFjFr-HmOyCtB5NIDE9MQDv&sz=w1000","https://drive.google.com/thumbnail?id=17Iam6Uo-YpC84OWn9WWV5mvtqU0n7AE7&sz=w1000"];
-let curExpDoc=0;const expDocImgEl=document.getElementById('expDocImg');const expDocDotsEl=document.getElementById('expDocDots');function renderExpDocDots(){expDocDotsEl.innerHTML='';expDocImgs.forEach((_,i)=>{const s=document.createElement('span');if(i===curExpDoc)s.classList.add('active');s.onclick=()=>{curExpDoc=i;updateExpDocGallery()};expDocDotsEl.innerHTML='';});}function updateExpDocGallery(){expDocImgEl.src=expDocImgs[curExpDoc];renderExpDocDots();}document.getElementById('prevExpDoc').onclick=()=>{curExpDoc=(curExpDoc-1+expDocImgs.length)%expDocImgs.length;updateExpDocGallery()};document.getElementById('nextExpDoc').onclick=()=>{curExpDoc=(curExpDoc+1)%expDocImgs.length;updateExpDocGallery()};renderExpDocDots();
-// PRELOADER - 4 DETIK, GANTI 4000 JADI 40000 KALAU MAU 40 DETIK
-setTimeout(()=>{document.getElementById('preloader').classList.add('hide');setTimeout(()=>{document.getElementById('preloader').style.display='none';},600);},4000);
+let curExpDoc=0;const expDocImgEl=document.getElementById('expDocImg');const expDocDotsEl=document.getElementById('expDocDots');function renderExpDocDots(){expDocDotsEl.innerHTML='';expDocImgs.forEach((_,i)=>{const s=document.createElement('span');if(i===curExpDoc)s.classList.add('active');s.onclick=()=>{curExpDoc=i;updateExpDocGallery()};expDocDotsEl.appendChild(s);});}function updateExpDocGallery(){expDocImgEl.src=expDocImgs[curExpDoc];renderExpDocDots();}document.getElementById('prevExpDoc').onclick=()=>{curExpDoc=(curExpDoc-1+expDocImgs.length)%expDocImgs.length;updateExpDocGallery()};document.getElementById('nextExpDoc').onclick=()=>{curExpDoc=(curExpDoc+1)%expDocImgs.length;updateExpDocGallery()};renderExpDocDots();
+// PRELOADER PERSIS VIDEO - 6 DETIK, GANTI 6000 JADI 40000 KALAU MAU 40 DETIK
+setTimeout(()=>{document.getElementById('preloader').classList.add('hide');setTimeout(()=>{document.getElementById('preloader').style.display='none';},500);},6000);
 </script>
 </body>
 </html>
