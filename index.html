@@ -3,153 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moh Alfian Azwar Anas - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif}
-html{scroll-behavior:smooth}
-body{background:#000;color:#fff;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-
-/* NAVBAR TENGAH */
-header{position:fixed;top:0;left:0;width:100%;background:rgba(0,0,0,.9);backdrop-filter:blur(10px);z-index:100;border-bottom:1px solid #222;padding:14px 20px;display:flex;justify-content:center;align-items:center;gap:20px}
-.logo{background:#fff;color:#000;font-weight:900;padding:6px 10px;border-radius:8px}
-nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
-nav a{padding:8px 16px;border-radius:999px;color:#a7f3d0;font-size:14px;transition:.3s}
-nav a:hover{background:#222;transform:translateY(-2px)}
-nav a.active{background:#0f766e !important;color:#fff !important;transform:scale(1.05);box-shadow:0 5px 15px rgba(0,0,0,.5)}
-
-/* SECTION */
-section{min-height:100vh;padding:120px 20px 60px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;scroll-margin-top:70px}
-h1{font-size:clamp(32px,6vw,56px);line-height:1.1;margin:15px 0}
-h1 span{color:#2dd4bf}
-h2{font-size:32px;margin-bottom:20px}
-p{color:#bbb;line-height:1.7;max-width:650px}
-.badge{background:#0f766e;padding:6px 14px;border-radius:999px;font-size:13px}
-.hero-wrap{display:flex;gap:40px;align-items:center;flex-wrap:wrap;justify-content:center;max-width:1000px}
-.hero-text{text-align:left;flex:1;min-width:280px}
-.hero-img{width:320px;height:380px;object-fit:cover;border-radius:20px;border:3px solid #0f766e;animation:float 3s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-
-/* TOMBOL ADA ANIMASI */
-.btns{display:flex;gap:12px;margin-top:25px;flex-wrap:wrap}
-.btn{padding:13px 24px;border-radius:999px;font-weight:bold;transition:.3s;display:inline-block}
-.btn-green{background:#14b8a6;color:#fff}
-.btn-white{background:#fff;color:#000}
-.btn:hover{transform:translateY(-4px) scale(1.05);box-shadow:0 12px 25px rgba(20,184,166,.4)}
-.btn:active{transform:scale(.96)}
-
-/* CARD */
-.grid{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:25px}
-.card{background:#111;border:1px solid #222;padding:25px;border-radius:16px;width:280px;text-align:left;transition:.3s}
-.card:hover{transform:translateY(-8px);border-color:#14b8a6}
-.card h3{margin-bottom:10px}
-.card p{font-size:14px}
-.skill{ background:#111;border:1px solid #222;padding:12px 20px;border-radius:999px}
-footer{padding:30px;text-align:center;color:#666;border-top:1px solid #222}
-@media(max-width:700px){.hero-text{text-align:center}.btns{justify-content:center}.hero-img{width:260px;height:310px}}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#000}
+html,body,.wrap,.nav,.case-scroll,.case-dots{scrollbar-width:none;-ms-overflow-style:none}
+::-webkit-scrollbar{width:0 !important;height:0 !important;display:none !important;background:#000 !important}
+body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow:hidden}
+.wrap{width:100%;height:100vh;background:#000;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth;scroll-snap-type:y mandatory}
+.wrap::-webkit-scrollbar{width:0}
+.navbar{width:92%;max-width:1100px;margin:12px auto 0 auto;position:sticky;top:12px;z-index:999;display:flex;justify-content:space-between;align-items:center;background:transparent;gap:10px}
+.logo{width:34px;height:34px;background:#fff;color:#000;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;flex-shrink:0}
+.nav{position:absolute;left:50%;transform:translateX(-50%);background:#151515;border:1px solid #242424;padding:5px 7px;border-radius:12px;display:flex;gap:2px;max-width:70vw;overflow-x:auto;white-space:nowrap}
+.nav::-webkit-scrollbar{width:0}
+.nav a{font-size:12.5px;font-weight:600;color:#7a7a7a;text-decoration:none;padding:6px 12px;border-radius:8px;cursor:pointer;transition:all .25s ease;flex-shrink:0}
+.nav a:hover{color:#fff;transform:translateY(-1px)}
+.nav a.active{background:#1c3435;color:#6ab8bf}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px 0 40px 0;scroll-snap-align:start}
+.card{width:92%;max-width:1100px;margin:0 auto;background:#101010;border:1px solid #232323;border-radius:18px;padding:22px 24px 22px 28px;display:flex;justify-content:space-between;align-items:center;transition:all .3s ease}
+.left{flex:1;padding-right:24px;min-width:0}
+.badge{display:inline-flex;align-items:center;gap:6px;background:#142514;border:1px solid #254429;color:#7ec87e;font-size:11px;font-weight:700;padding:6px 12px;border-radius:20px;margin-bottom:26px}
+.badge i{width:6px;height:6px;background:#7ec87e;border-radius:50%;display:inline-block}
+.title{font-size:42px;line-height:1;font-weight:900;letter-spacing:-1px;margin-bottom:12px;word-wrap:break-word}
+.sub{color:#5dbcc5;font-size:14px;font-weight:700;margin-bottom:22px}
+.btns{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.b1{background:#6ab8bf;color:#0f2e33;border:none;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer}
+.b2{background:#1a1a1a;border:1px solid #2e2e2e;color:#e0e0e0;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer}
+.meta{display:flex;align-items:center;gap:7px;color:#888;font-size:12px;font-weight:500;flex-wrap:wrap}
+.meta b{color:#fff;font-weight:700}
+.meta-dot{width:3px;height:3px;background:#3a3a3a;border-radius:50%}
+.map-icon{width:13px;height:13px;flex-shrink:0;color:#888}
+.right{position:relative;width:260px;height:310px;flex-shrink:0;transition:all .3s ease}
+.right:hover{transform:translateY(-3px)}
+.shadow{position:absolute;bottom:-10px;right:-10px;width:92%;height:90%;background:#151515;border-radius:14px;z-index:1}
+.foto{position:relative;z-index:2;width:100%;height:100%;background:#e9e9e9;border-radius:14px;overflow:hidden}
+.foto img{width:100%;height:100%;object-fit:cover;object-position:center 5%;transform:scale(1.28);transform-origin:center top;display:block}
+.about{width:92%;max-width:1100px;margin:0 auto;min-height:100vh;display:flex;gap:40px;align-items:center;padding:60px 0;scroll-snap-align:start}
+.about-left{flex:1.6;min-width:0}
+.about-label{color:#5dbcc5;font-size:13px;font-weight:700;margin-bottom:12px}
+.about-title{font-size:28px;font-weight:900;margin-bottom:18px;line-height:1.1}
+.about-text{color:#b0b0b0;font-size:15px;line-height:1.65;margin-bottom:14px;text-align:justify;word-wrap:break-word}
+.about-right{flex:0.95;display:flex;flex-direction:column;gap:14px;min-width:0}
+.info-card{background:#101010;border:1px solid #222;border-radius:16px;padding:20px;transition:all .3s ease}
+.info-card:hover{transform:translateY(-3px);border-color:#333}
+.info-card-title{color:#5a5a5a;font-size:11.5px;font-weight:700;letter-spacing:1.2px;margin-bottom:16px;text-transform:uppercase}
+.edu-item{position:relative;padding-left:22px;margin-bottom:20px;border-left:1.5px solid #2a2a2a}
+.edu-item::before{content:'';position:absolute;left:-7px;top:3px;width:12px;height:12px;background:#5dbcc5;border-radius:50%;box-shadow:0 0 0 4px #101010}
+.edu-school{font-size:15.5px;font-weight:700;color:#fff;margin-bottom:3px}
+.edu-major{font-size:14px;font-weight:600;color:#5dbcc5;margin-bottom:3px}
+.edu-year{font-size:12.5px;color:#666}
+.edu-year b{color:#fff}
+.sertif-box{background:#151515;border:1px solid #222;border-radius:12px;padding:14px 10px;display:flex;justify-content:center;cursor:pointer;transition:all .3s ease}
+.sertif-box:hover{transform:translateY(-4px);border-color:#3a3a3a}
+.sertif-text{font-size:12.5px;color:#a0a0a0;text-align:center}
+.exp-section{width:92%;max-width:1100px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0;scroll-snap-align:start}
+.exp-label{color:#5dbcc5;font-size:13px;font-weight:700;margin-bottom:12px}
+.exp-main-title{font-size:28px;font-weight:900;margin-bottom:22px}
+.exp-card{background:#101010;border:1px solid #232323;border-radius:16px;padding:22px 24px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-direction:column;transition:all .3s ease}
+.exp-card:hover{transform:translateY(-4px);border-color:#333}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;width:100%}
+.exp-role{font-size:16px;font-weight:700;margin-bottom:8px}
+.exp-company{font-size:13.5px;font-weight:600;color:#5dbcc5;margin-bottom:14px}
+.exp-desc{font-size:13.5px;color:#8a8a8a;line-height:1.6;text-align:justify}
+.exp-badge{background:#151515;border:1px solid #2a2a2a;color:#666;font-size:10px;font-weight:700;padding:7px 12px;border-radius:20px;white-space:nowrap;height:fit-content;flex-shrink:0}
+.exp-actions{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap}
+.project-section{width:92%;max-width:1100px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0;scroll-snap-align:start}
+.project-label{color:#5dbcc5;font-size:11px;font-weight:700;letter-spacing:1.5px;margin-bottom:12px}
+.project-title{font-size:28px;font-weight:900;margin-bottom:24px}
+.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.proj-card{background:#111;border:1px solid #222;border-radius:16px;padding:20px;display:flex;flex-direction:column;transition:all .3s ease}
+.proj-card:hover{transform:translateY(-6px);border-color:#333;background:#151515}
+.proj-year{background:#142e31;color:#5dbcc5;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;width:fit-content;margin-bottom:14px}
+.proj-card-title{font-size:15px;font-weight:700;margin-bottom:10px;line-height:1.3}
+.proj-card-desc{font-size:12.5px;color:#8a8a8a;line-height:1.5;margin-bottom:18px;flex:1}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;padding-top:14px;border-top:1px solid #1e1e1e}
+.proj-tag{background:#1a1a1a;border:1px solid #252525;color:#777;font-size:10px;padding:5px 9px;border-radius:6px}
+.proj-actions{display:flex;gap:8px;flex-wrap:wrap}
+.proj-btn{border:1px solid #2a2a2a;background:#151515;color:#5dbcc5;font-size:11px;font-weight:600;padding:7px 12px;border-radius:8px;cursor:pointer}
+.proj-btn.live{color:#7ec87e}
+.capabilities-section{width:92%;max-width:1100px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0;scroll-snap-align:start}
+.cap-label{color:#5dbcc5;font-size:11px;font-weight:700;letter-spacing:1.5px;margin-bottom:14px}
+.cap-title{font-size:32px;font-weight:900;margin-bottom:24px;line-height:1.1}
+.cap-box{background:#101010;border:1px solid #232323;border-radius:18px;padding:22px}
+.cap-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px}
+.cap-item{background:#191919;border:1px solid #252525;border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:#e0e0e0;transition:all .3s ease}
+.cap-item:hover{transform:translateY(-3px);background:#1e1e1e;border-color:#333}
+.cap-dot{width:6px;height:6px;background:#5dbcc5;border-radius:50%;flex-shrink:0}
+.contact-section{width:92%;max-width:1100px;margin:0 auto;min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 40px 0;scroll-snap-align:start}
+.contact-box{background:#101010;border:1px solid #232323;border-radius:20px;padding:46px 20px;text-align:center}
+.contact-kicker{color:#5dbcc5;font-size:11px;font-weight:700;letter-spacing:1.8px;margin-bottom:14px}
+.contact-title{font-size:28px;font-weight:900;margin-bottom:12px;line-height:1.2}
+.contact-desc{color:#8a8a8a;font-size:13.5px;line-height:1.5;max-width:580px;margin:0 auto 22px auto}
+.contact-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.c-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:12px;font-size:12.5px;font-weight:700;cursor:pointer;border:1px solid #2a2a2a;text-decoration:none}
+.c-btn-email{background:#5dbcc5;color:#0f2e33;border-color:#5dbcc5}
+.c-btn-dark{background:#191919;color:#fff}
+.footer{width:100%;background:#101010;border-top:1px solid #1a1a1a;padding:22px 0;text-align:center;scroll-snap-align:end}
+.footer p{color:#4a4a4a;font-size:10px;line-height:1.8}
+#caseModal,#caseModal2,#liveDemoModal,#expDetailModal,#expDocModal{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(12px);z-index:10000;display:none;align-items:center;justify-content:center;padding:20px}
+#caseModal.show,#caseModal2.show,#liveDemoModal.show,#expDetailModal.show,#expDocModal.show{display:flex}
+.case-container{width:100%;max-width:980px;height:88vh;background:#191919;border:1px solid #2a2a2a;border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.case-head{position:sticky;top:0;z-index:10;background:#1e1e1e;border-bottom:1px solid #2a2a2a;padding:16px 22px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.case-head-left{flex:1;padding-right:20px;min-width:0}
+.case-kicker{color:#5dbcc5;font-size:10px;font-weight:700;letter-spacing:1.5px;margin-bottom:6px}
+.case-kicker.live{color:#7ec87e}
+.case-title{font-size:20px;font-weight:800;color:#fff;line-height:1.2}
+.case-close{width:34px;height:34px;background:#252525;border:1px solid #333;border-radius:50%;color:#aaa;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s ease}
+.case-scroll{flex:1;overflow-y:auto;background:#191919}
+.case-images{margin:14px 14px 0 14px;height:420px;background:#0f0f0f;border:1px solid #262626;border-radius:14px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.case-images img{width:100%;height:100%;object-fit:contain;background:#000}
+.case-arrow{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;background:rgba(0,0,0,.6);border:1px solid #333;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;z-index:5}
+.case-arrow.left{left:12px}
+.case-arrow.right{right:12px}
+.case-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;background:rgba(0,0,0,.6);padding:6px 10px;border-radius:20px;max-width:90%;overflow-x:auto}
+.case-dots span{width:6px;height:6px;background:#555;border-radius:50%;cursor:pointer;flex-shrink:0}
+.case-dots span.active{width:22px;background:#fff}
+.case-content{display:flex;gap:0}
+.case-left{flex:1.6;padding:22px;border-right:1px solid #222;min-width:0}
+.case-h3{font-size:14px;font-weight:700;color:#fff;margin:6px 0 12px 0}
+.case-p{font-size:12.5px;color:#9a9a9a;line-height:1.7;margin-bottom:14px;text-align:justify}
+.case-right{flex:0.9;background:#0a0a0a;border:1px solid #1e1e1e;border-radius:16px;padding:20px;margin:14px;height:fit-content;min-width:0}
+.role-label{font-size:12.5px;font-weight:600;color:#777;margin-bottom:8px}
+.role-value{font-size:14px;font-weight:700;color:#fff;line-height:1.35;margin-bottom:22px}
+.stack-label{font-size:12.5px;font-weight:600;color:#777;margin-bottom:12px}
+.case-stack{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.case-stack span{background:#111;border:1px solid #252525;color:#d0d0d0;font-size:11.5px;font-weight:500;padding:6px 12px;border-radius:8px}
+.case-btn-white{width:100%;background:#fff;color:#000;border:none;padding:12px;border-radius:12px;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;margin-bottom:10px}
+.case-btn-dark{width:100%;background:#151515;border:1px solid #252525;color:#fff;padding:12px;border-radius:12px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}
+.key-perf-title{font-size:15px;font-weight:800;color:#fff;margin-top:22px;margin-bottom:14px}
+.case-key-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.case-key-item{background:#132a2d;border:1px solid #20464b;color:#5dbcc5;font-size:12.8px;font-weight:700;padding:10px 16px;border-radius:10px}
+#liveDemoModal .case-container{width:100%;max-width:860px;height:auto;max-height:90vh;background:#191919;border:1px solid #2a2a2a;border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.live-video-box{width:100%;aspect-ratio:16/9;height:auto;background:#000;overflow:hidden;position:relative;flex-shrink:0}
+.live-video-box iframe{width:100%;height:100%;border:none;background:#000;position:absolute;inset:0}
+#cvModal,#sertifModal{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
+#cvModal.show,#sertifModal.show{display:flex}
+.modalBox{width:90%;max-width:900px;height:88vh;background:#111;border:1px solid #2a2a2a;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.modalHead{padding:14px 18px;background:#151515;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center}
+.modalHead span{font-size:13px;font-weight:700;color:#ccc}
+.closeBtn{background:#222;border:1px solid #333;color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer}
+.modalBody{flex:1;background:#000;display:flex;align-items:center;justify-content:center}
+.modalBody iframe{width:100%;height:100%;border:none;background:#fff}
+/* FIX MAS - SEMUA TOMBOL ANIMASI NAIK PAS KURSOR DIARAHKAN MAS */
+button, .c-btn, .proj-btn, .b1, .b2, .case-btn-white, .case-btn-dark, .closeBtn, .case-close, .cap-item, .info-card, .exp-card, .proj-card, .sertif-box{
+  transition: all .28s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  will-change: transform;
+}
+.b1:hover, .b2:hover, .proj-btn:hover, .c-btn:hover, .case-btn-white:hover, .case-btn-dark:hover{
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
+}
+.b1:hover{box-shadow:0 10px 25px rgba(106,184,191,.4) !important}
+.proj-btn:hover{border-color:#3a3a3a !important}
+.c-btn-dark:hover{background:#222 !important;border-color:#3a3a3a !important}
+.cap-item:hover{transform: translateY(-4px) !important;background:#1e1e1e !important;border-color:#333 !important}
+.info-card:hover{transform: translateY(-4px) !important}
+.exp-card:hover{transform: translateY(-4px) !important}
+.proj-card:hover{transform: translateY(-6px) !important}
+.sertif-box:hover{transform: translateY(-4px) !important}
+.closeBtn:hover{transform: translateY(-2px) scale(1.05) !important;background:#2a2a2a !important}
+.case-close:hover{transform: rotate(90deg) translateY(-1px) scale(1.05) !important}
+.case-arrow:hover{transform: translateY(-50%) scale(1.15) !important}
+@media(max-width:768px){
+  .wrap{scroll-snap-type:none}
+  .navbar{position:sticky;top:0;margin:0 auto;padding:10px 0 8px 0;width:100%;background:#000;justify-content:flex-start}
+  .logo{display:none}
+  .nav{position:relative;left:0;transform:none;max-width:100%;width:92%;margin:0 auto;background:#151515;padding:4px 6px;overflow-x:auto}
+  .hero{padding:70px 0 20px 0;min-height:auto;scroll-snap-align:none}
+  .card{flex-direction:column-reverse;padding:18px;gap:18px;align-items:flex-start}
+  .left{padding-right:0;width:100%}
+  .title{font-size:26px;white-space:normal}
+  .right{width:100%;height:280px;max-width:340px;margin:0 auto}
+  .about{flex-direction:column;min-height:auto;padding:30px 0;align-items:flex-start;gap:22px;scroll-snap-align:none}
+  .exp-section,.project-section,.capabilities-section,.contact-section{min-height:auto;padding:30px 0;scroll-snap-align:none}
+  .exp-top{flex-direction:column}
+  .project-grid{grid-template-columns:1fr}
+  .cap-grid{grid-template-columns:1fr 1fr}
+  .case-container{height:92vh}
+  #liveDemoModal .case-container{height:auto;max-height:85vh}
+  .case-images{height:260px}
+  .case-content{flex-direction:column}
+  .case-left{border-right:none;border-bottom:1px solid #222}
+}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="logo">MA</div>
-  <nav id="navbar">
-    <a href="#home" class="active">Home</a>
-    <a href="#tentang">Tentang</a>
-    <a href="#pengalaman">Pengalaman</a>
-    <a href="#project">Project</a>
-    <a href="#keahlian">Keahlian</a>
-    <a href="#kontak">Kontak</a>
-  </nav>
-</header>
-
-<!-- HOME -->
-<section id="home">
-  <div class="hero-wrap">
-    <div class="hero-text">
-      <span class="badge">Halo, Saya</span>
-      <h1>Moh Alfian<br>Azwar <span>Anas</span></h1>
-      <p>Saya adalah mahasiswa & developer yang suka membangun website yang rapi, cepat, dan enak dilihat.</p>
-      <div class="btns">
-        <a href="#project" class="btn btn-green">Lihat Project →</a>
-        <a href="#kontak" class="btn btn-white">Lihat CV</a>
-      </div>
-    </div>
-    <!-- GANTI src DI BAWAH INI DENGAN FOTO MAS -->
-    <img class="hero-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Foto Alfian">
-  </div>
-</section>
-
-<!-- TENTANG -->
-<section id="tentang">
-  <span class="badge">Tentang Saya</span>
-  <h2>About Me</h2>
-  <p>Halo! Saya Moh Alfian Azwar Anas. Saya fokus di bidang web development dan desain. Saya suka belajar hal baru dan membuat project yang bermanfaat untuk banyak orang.</p>
-  <div class="grid">
-    <div class="card"><h3>🎓 Pendidikan</h3><p>Mahasiswa aktif, fokus di teknologi & pengembangan web.</p></div>
-    <div class="card"><h3>💻 Passion</h3><p>Membuat website modern, responsif, dan interaktif.</p></div>
-    <div class="card"><h3>🎯 Tujuan</h3><p>Menjadi developer profesional yang karyanya dipakai banyak orang.</p></div>
-  </div>
-</section>
-
-<!-- PENGALAMAN -->
-<section id="pengalaman">
-  <span class="badge">Perjalanan Saya</span>
-  <h2>Pengalaman</h2>
-  <div class="grid">
-    <div class="card"><h3>2024 - Sekarang</h3><p><b>Web Developer</b><br>Membuat portfolio & website UMKM.</p></div>
-    <div class="card"><h3>2023 - 2024</h3><p><b>Belajar Frontend</b><br>HTML, CSS, JavaScript & Tailwind.</p></div>
-    <div class="card"><h3>2023</h3><p><b>Project Pertama</b><br>Membuat website pertama dan deploy ke Vercel.</p></div>
-  </div>
-</section>
-
-<!-- PROJECT -->
-<section id="project">
-  <span class="badge">Karya Saya</span>
-  <h2>Project</h2>
-  <div class="grid">
-    <div class="card"><h3>🌐 Portfolio Website</h3><p>Website portfolio pribadi, responsif & animasi halus.</p></div>
-    <div class="card"><h3>🛍️ Website Toko</h3><p>Katalog produk online untuk UMKM.</p></div>
-    <div class="card"><h3>📱 Landing Page</h3><p>Halaman promosi yang cepat dan menarik.</p></div>
-  </div>
-</section>
-
-<!-- KEAHLIAN -->
-<section id="keahlian">
-  <span class="badge">Apa Yang Saya Bisa</span>
-  <h2>Keahlian</h2>
-  <div class="grid">
-    <span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">JavaScript</span><span class="skill">Tailwind</span><span class="skill">GitHub</span><span class="skill">Vercel</span>
-  </div>
-</section>
-
-<!-- KONTAK -->
-<section id="kontak">
-  <span class="badge">Hubungi Saya</span>
-  <h2>Kontak</h2>
-  <p>Tertarik kerja sama? Hubungi saya di bawah ini.</p>
-  <div class="btns" style="justify-content:center">
-    <a href="https://github.com/anasazwar376-sys" class="btn btn-green">GitHub Saya</a>
-    <a href="mailto:alfian@example.com" class="btn btn-white">Kirim Email</a>
-  </div>
-</section>
-
-<footer>© 2026 Moh Alfian Azwar Anas - Dibuat dengan ❤️</footer>
-
+<div class="wrap" id="wrap">
+  <div class="navbar"><div class="logo">MA</div><div class="nav" id="nav"><a data-target="home" class="active">Home</a><a data-target="tentang">Tentang</a><a data-target="pengalaman">Pengalaman</a><a data-target="project">Project</a><a data-target="keahlian">Keahlian</a><a data-target="kontak">Kontak</a></div><div style="width:34px;height:34px"></div></div>
+  <section id="home" class="hero"><div class="card"><div class="left"><div class="badge"><i></i> OPEN TO WORK</div><div class="title">Moh Alfian Azwar Anas</div><div class="sub">Mechatronics • Industrial Automation • Electrical Engineer</div><div class="btns"><button class="b1" id="toProject">Lihat Project</button><button class="b2" id="btnCV">Lihat CV</button></div><div class="meta"><svg class="map-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>Banyuwangi, Indonesia <span class="meta-dot"></span> <b>Fresh Graduate • IPK 3.46</b></div></div><div class="right"><div class="shadow"></div><div class="foto"><img src="https://drive.google.com/thumbnail?id=1RnuAzmKEwMPh2axUGX9ezUf2tQIHWkWs&sz=w800"></div></div></div></section>
+  <section id="tentang" class="about"><div class="about-left"><div class="about-label">ABOUT ME</div><div class="about-title">FRESH GRADUATE MEKATRONIKA</div><p class="about-text">Saya adalah lulusan D-IV Teknologi Rekayasa Mekatronika dari Politeknik Negeri Jember dengan ketertarikan pada Industrial Automation, PLC, Control Panel, dan Instrumentation.</p><p class="about-text">Selama magang di PT Phase Delta Control, saya terlibat langsung dalam perakitan dan wiring panel, instalasi sistem kontrol, pengecekan dan QC perangkat, kalibrasi ATG, troubleshooting, serta pengujian sistem monitoring.</p><p class="about-text">Selain itu, saya mengembangkan beberapa proyek seperti alat pengering dan penggiling cabai berbasis PLC Outseal sebagai proyek skripsi, serta sistem monitoring greenhouse berbasis ESP32 dan IoT.</p></div><div class="about-right"><div class="info-card"><div class="info-card-title">PENDIDIKAN</div><div class="edu-item"><div class="edu-school">Politeknik Negeri Jember</div><div class="edu-major">D-IV Teknologi Rekayasa Mekatronika</div><div class="edu-year">2022 - 2026 • IPK: <b>3.46</b></div></div><div class="edu-item"><div class="edu-school">MA U Mamba'ul Huda</div><div class="edu-major">Pendidikan Agama Islam</div><div class="edu-year">2019 - 2022</div></div></div><div class="info-card"><div class="info-card-title">SERTIFIKASI</div><div class="sertif-box" id="btnSertif"><div class="sertif-text">Sertifikat Kompetensi Engineer Mekatronika — BNSP</div></div></div></div></section>
+  <section id="pengalaman" class="exp-section"><div><div class="exp-label">EXPERIENCE</div><div class="exp-main-title">Pengalaman Kerja & Magang.</div><div class="exp-card"><div class="exp-top"><div><div class="exp-role">Electrical Engineering Intern</div><div class="exp-company">PT Phase Delta Control (PDC)</div><div class="exp-desc">Terlibat dalam perakitan panel kontrol, instalasi perangkat instrumentasi, serta implementasi sistem digitalisasi pemantauan tangki BBM di SPBU Seduri, Sidoarjo. Melaksanakan pengujian dan QC perangkat ATG, kalibrasi probe tangki, serta inspeksi motorized valve.</div><div class="exp-actions"><button class="proj-btn" id="openExpDetail">Lihat Detail →</button><button class="proj-btn live" id="openExpDoc">Dokumentasi</button></div></div><div class="exp-badge">3 BULAN 20 HARI</div></div></div></div></section>
+  <section id="project" class="project-section"><div><div class="project-label">SELECTED WORK</div><div class="project-title">Project Unggulan.</div><div class="project-grid">
+    <div class="proj-card"><div class="proj-year">2026</div><div class="proj-card-title">Rancang Bangun Alat Pengering dan Penggiling Cabai Rawit Berbasis PLC Outseal Nano</div><div class="proj-card-desc">Perancangan dan implementasi sistem otomatis untuk proses pengeringan, pemindahan, dan penggilingan cabai rawit menggunakan PLC Outseal Nano, dilengkapi kontrol suhu dan mekanisme kerja berurutan.</div><div class="proj-tags"><span class="proj-tag">PLC Outseal Nano</span><span class="proj-tag">Industrial Automation</span><span class="proj-tag">Temperature Control</span><span class="proj-tag">Arduino</span><span class="proj-tag">Mechanical Design</span><span class="proj-tag">+2</span></div><div class="proj-actions"><button class="proj-btn" id="openCase">Lihat Detail →</button><button class="proj-btn live" id="openLiveDemo">Live Demo</button></div></div>
+    <div class="proj-card"><div class="proj-year">2024</div><div class="proj-card-title">IoT-Based Greenhouse Monitoring System</div><div class="proj-card-desc">Sistem monitoring greenhouse tanaman melon berbasis IoT untuk memantau suhu, kelembapan udara, intensitas cahaya, dan kelembapan tanah secara real-time melalui aplikasi smartphone.</div><div class="proj-tags"><span class="proj-tag">IoT</span><span class="proj-tag">ESP32</span><span class="proj-tag">Sensor Integration</span><span class="proj-tag">Firebase</span><span class="proj-tag">+1</span></div><div class="proj-actions"><button class="proj-btn" id="openCase2">Lihat Detail →</button></div></div>
+  </div></div></section>
+  <section id="keahlian" class="capabilities-section"><div><div class="cap-label">CAPABILITIES</div><div class="cap-title">Tech stack & keahlian teknis utama.</div><div class="cap-box"><div class="cap-grid">
+        <div class="cap-item"><span class="cap-dot"></span> Industrial Automation</div><div class="cap-item"><span class="cap-dot"></span> IoT Systems</div><div class="cap-item"><span class="cap-dot"></span> ESP32 & Arduino</div><div class="cap-item"><span class="cap-dot"></span> Basic PLC Programming</div><div class="cap-item"><span class="cap-dot"></span> Sensor Integration</div><div class="cap-item"><span class="cap-dot"></span> Electrical Panel Wiring</div><div class="cap-item"><span class="cap-dot"></span> Embedded Systems</div><div class="cap-item"><span class="cap-dot"></span> HMI & Control Systems</div><div class="cap-item"><span class="cap-dot"></span> Electrical Drafting</div><div class="cap-item"><span class="cap-dot"></span> AutoCAD</div><div class="cap-item"><span class="cap-dot"></span> Autodesk Inventor</div><div class="cap-item"><span class="cap-dot"></span> 3D CAD Design</div><div class="cap-item"><span class="cap-dot"></span> Welding</div><div class="cap-item"><span class="cap-dot"></span> CNC Machining</div><div class="cap-item"><span class="cap-dot"></span> Vectric Aspire</div><div class="cap-item"><span class="cap-dot"></span> 3D Printing</div><div class="cap-item"><span class="cap-dot"></span> Microsoft Office</div><div class="cap-item"><span class="cap-dot"></span> Electrical Troubleshooting</div>
+      </div></div></div></section>
+  <section id="kontak" class="contact-section"><div class="contact-box"><div class="contact-kicker">LET'S CONNECT</div><div class="contact-title">Siap berkolaborasi dan berkoneksi</div><div class="contact-desc">Terbuka untuk peluang kerja full-time, proyek independen, atau diskusi teknis seputar integrasi sistem end-to-end.</div><div class="contact-btns"><button class="c-btn c-btn-email" id="btnCopyEmail"><span id="emailText">Salin Email</span></button><a class="c-btn c-btn-dark" href="https://www.linkedin.com/in/alfian-azwar" target="_blank">LinkedIn</a><a class="c-btn c-btn-dark" href="https://wa.me/6283115861900?text=Halo%20mas%20Alfian" target="_blank">WhatsApp</a></div></div></section>
+  <footer class="footer"><p>© 2026 Moh Alfian Azwar Anas. All rights reserved.</p><p>Built with passion for Industrial Automation & IoT.</p></footer>
+</div>
+<div id="caseModal"><div class="case-container"><div class="case-head"><div class="case-head-left"><div class="case-kicker">CASE STUDY</div><div class="case-title">Rancang Bangun Alat Pengering dan Penggiling Cabai Rawit Berbasis PLC Outseal Nano</div></div><div class="case-close" id="closeCase">✕</div></div><div class="case-scroll"><div class="case-images"><div class="case-arrow left" id="prevImg">‹</div><img id="caseImg" src="https://drive.google.com/thumbnail?id=1G5HFezJF5cs5toAFE2XojnihLO66Mhhw&sz=w1000"><div class="case-arrow right" id="nextImg">›</div><div class="case-dots" id="caseDots"></div></div><div class="case-content"><div class="case-left"><div class="case-h3">Deskripsi Teknis</div><p class="case-p">Tugas akhir ini berfokus pada perancangan alat pengering dan penggiling cabai rawit otomatis berbasis PLC Outseal Nano dengan tiga tahap proses terintegrasi: pengeringan, pemindahan, dan penggilingan, dengan kapasitas rancangan hingga 5 kg per proses.</p><p class="case-p">Proyek ini mencakup perancangan mekanik 3D, perakitan panel kontrol, pemrograman PLC, serta integrasi sensor dan aktuator. Analisis tegangan menggunakan Finite Element Analysis (FEA) pada Autodesk Inventor menunjukkan tegangan Von Mises maksimum sebesar 19,44 MPa, di bawah yield strength material sebesar 250 MPa, sehingga struktur dinyatakan aman.</p><div class="key-perf-title">Key Performance</div><div class="case-key-grid"><div class="case-key-item">Kapasitas 5 kg / proses</div><div class="case-key-item">Von Mises 19,44 MPa</div><div class="case-key-item">Yield 250 MPa</div><div class="case-key-item">Safety Factor Aman</div></div></div><div class="case-right"><div class="role-label">Role</div><div class="role-value">Mechatronics & Automation Engineer</div><div class="stack-label">Stack & Tools</div><div class="case-stack"><span>PLC Outseal Nano</span><span>Industrial Automation</span><span>Temperature Control</span><span>Arduino</span><span>Mechanical Design</span><span>Autodesk Inventor</span><span>FEA</span></div><button class="case-btn-white" id="btnLiveFromCase">Lihat Live Demo</button></div></div></div></div></div>
+<div id="caseModal2"><div class="case-container"><div class="case-head"><div class="case-head-left"><div class="case-kicker">CASE STUDY</div><div class="case-title">IoT-Based Greenhouse Monitoring System</div></div><div class="case-close" id="closeCase2">✕</div></div><div class="case-scroll"><div class="case-images"><div class="case-arrow left" id="prevImg2">‹</div><img id="caseImg2" src="https://drive.google.com/thumbnail?id=1nL8phfym-yR97OSB8bopUPGeVqxPryVG&sz=w1000"><div class="case-arrow right" id="nextImg2">›</div><div class="case-dots" id="caseDots2"></div></div><div class="case-content"><div class="case-left"><div class="case-h3">Deskripsi Teknis</div><p class="case-p">Proyek ini mengembangkan sistem monitoring greenhouse tanaman melon berbasis IoT untuk memantau suhu, kelembapan udara, intensitas cahaya, dan kelembapan tanah secara real-time.</p><p class="case-p">Sistem menggunakan ESP32, Firebase Realtime Database, dan aplikasi smartphone untuk menampilkan data pemantauan secara praktis. Sensor yang digunakan meliputi SHT31-D untuk suhu & kelembapan, BH1750FVI untuk intensitas cahaya, dan soil moisture untuk kelembapan tanah, diintegrasikan melalui MIT App Inventor.</p><div class="key-perf-title">Key Performance</div><div class="case-key-grid"><div class="case-key-item">Real-Time Monitoring</div><div class="case-key-item">Sensor Integration</div><div class="case-key-item">Cloud Database</div><div class="case-key-item">Mobile Application</div></div></div><div class="case-right"><div class="role-label">Project</div><div class="role-value">IoT System Development</div><div class="stack-label">Stack & Tools</div><div class="case-stack"><span>ESP32</span><span>IoT</span><span>Firebase</span><span>SHT31-D</span><span>BH1750FVI</span><span>Soil Moisture</span><span>MIT App Inventor</span></div></div></div></div></div></div>
+<div id="liveDemoModal"><div class="case-container"><div class="case-head"><div class="case-head-left"><div class="case-kicker live">LIVE DEMO</div><div class="case-title">Live Demo - Alat Pengering dan Penggiling Cabai Rawit</div></div><div class="case-close" id="closeLiveDemo">✕</div></div><div class="live-video-box"><iframe id="liveDemoIframe" src="" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div></div>
+<div id="expDetailModal"><div class="case-container"><div class="case-head"><div class="case-head-left"><div class="case-kicker">EXPERIENCE DETAIL</div><div class="case-title">Electrical Engineering Intern - PT Phase Delta Control (PDC)</div></div><div class="case-close" id="closeExpDetail">✕</div></div><div class="case-scroll"><div class="case-content"><div class="case-left"><div class="case-h3">Deskripsi Pekerjaan</div><p class="case-p">Selama magang 3 bulan 20 hari di PT Phase Delta Control, saya terlibat dalam proyek digitalisasi SPBU Seduri, Sidoarjo. Fokus utama pada perakitan panel kontrol, instalasi instrumentasi ATG (Automatic Tank Gauge), dan sistem monitoring tangki BBM.</p><div class="case-h3">Tanggung Jawab Utama</div><p class="case-p">• Perakitan dan wiring panel kontrol sesuai diagram elektrik<br>• Instalasi probe ATG dan kalibrasi tangki BBM<br>• Pengujian QC perangkat ATG sebelum instalasi<br>• Inspeksi dan testing motorized valve<br>• Troubleshooting sistem monitoring dan komunikasi data</p></div><div class="case-right"><div class="role-label">Perusahaan</div><div class="role-value">PT Phase Delta Control (PDC)</div><div class="role-label">Durasi</div><div class="role-value">3 Bulan 20 Hari</div><div class="stack-label">Skills</div><div class="case-stack"><span>Panel Wiring</span><span>ATG Calibration</span><span>Instrumentation</span></div></div></div></div></div></div>
+<div id="expDocModal"><div class="case-container"><div class="case-head"><div class="case-head-left"><div class="case-kicker live">DOKUMENTASI</div><div class="case-title">Dokumentasi Magang - PT Phase Delta Control</div></div><div class="case-close" id="closeExpDoc">✕</div></div><div class="case-scroll"><div class="case-images"><div class="case-arrow left" id="prevExpDoc">‹</div><img id="expDocImg" src="https://drive.google.com/thumbnail?id=1G5HFezJF5cs5toAFE2XojnihLO66Mhhw&sz=w1000"><div class="case-arrow right" id="nextExpDoc">›</div><div class="case-dots" id="expDocDots"></div></div></div></div></div>
+<div id="cvModal"><div class="modalBox"><div class="modalHead"><span>CV - Moh Alfian Azwar Anas</span><button class="closeBtn" id="closeCV">✕</button></div><div class="modalBody"><iframe src="https://drive.google.com/file/d/1n2cpm2APuC7Z41VP6UR_XykhQfTfw0aL/preview"></iframe></div></div></div>
+<div id="sertifModal"><div class="modalBox" style="max-width:1000px"><div class="modalHead"><span>Sertifikat Kompetensi Engineer Mekatronika — BNSP</span><button class="closeBtn" id="closeSertif">✕</button></div><div class="modalBody" style="background:#0a0a0a"><iframe src="https://drive.google.com/file/d/1wO7qXyQgMQ5IO6FnTBch77n1u9qPZ9rH/preview"></iframe></div></div></div>
 <script>
-// SCROLLSPY - BIKIN MENU NYALA OTOMATIS
-const links = document.querySelectorAll('#navbar a');
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-  let current = 'home';
-  sections.forEach(sec => {
-    if(window.scrollY >= sec.offsetTop - 250) current = sec.id;
-  });
-  links.forEach(l => {
-    l.classList.remove('active');
-    if(l.getAttribute('href') === '#'+current) l.classList.add('active');
-  });
+const wrap=document.getElementById('wrap');
+const navLinks=document.querySelectorAll('#nav a');
+const sections=document.querySelectorAll('section[id]');
+function updateActiveNav(){
+  let current='home';
+  const scrollPos=wrap.scrollTop+250;
+  const isBottom = wrap.scrollTop + wrap.clientHeight >= wrap.scrollHeight - 50;
+  if(isBottom){ current='kontak'; }
+  else { sections.forEach(s=>{if(scrollPos>=s.offsetTop) current=s.id;}); }
+  navLinks.forEach(a=>{a.classList.remove('active'); if(a.dataset.target===current) a.classList.add('active');});
+}
+navLinks.forEach(l=>{l.addEventListener('click',()=>{const t=document.getElementById(l.dataset.target); if(t){navLinks.forEach(a=>a.classList.remove('active')); l.classList.add('active'); wrap.scrollTo({top:t.offsetTop,behavior:'smooth'})}})});
+document.getElementById('toProject').addEventListener('click',()=>{const p=document.getElementById('project');wrap.scrollTo({top:p.offsetTop,behavior:'smooth'});});
+wrap.addEventListener('scroll',updateActiveNav); updateActiveNav();
+const btnCopyEmail=document.getElementById('btnCopyEmail');const emailText=document.getElementById('emailText');
+btnCopyEmail.addEventListener('click', async ()=>{
+  const email='anasazwar376@gmail.com';
+  try{ await navigator.clipboard.writeText(email); emailText.textContent='Email tersalin!'; btnCopyEmail.style.background='#7ec87e'; setTimeout(()=>{emailText.textContent='Salin Email'; btnCopyEmail.style.background='#5dbcc5';},2000);}
+  catch(e){ const ta=document.createElement('textarea'); ta.value=email; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); emailText.textContent='Email tersalin!'; setTimeout(()=>{emailText.textContent='Salin Email';},2000); }
 });
+const cvModal=document.getElementById('cvModal'),sertifModal=document.getElementById('sertifModal'),caseModal=document.getElementById('caseModal'),caseModal2=document.getElementById('caseModal2'),liveDemoModal=document.getElementById('liveDemoModal'),liveDemoIframe=document.getElementById('liveDemoIframe'),expDetailModal=document.getElementById('expDetailModal'),expDocModal=document.getElementById('expDocModal');
+const LIVE_DEMO_URL="https://drive.google.com/file/d/1cu4iSGYmbODq4ZNt_C0NAI78PDDLgP4p/preview";
+function openLiveDemo(){liveDemoIframe.src=LIVE_DEMO_URL;liveDemoModal.classList.add('show');}
+function closeLiveDemo(){liveDemoModal.classList.remove('show');setTimeout(()=>{liveDemoIframe.src="";},300);}
+document.getElementById('btnCV').onclick=()=>cvModal.classList.add('show');document.getElementById('closeCV').onclick=()=>cvModal.classList.remove('show');cvModal.onclick=e=>{if(e.target===cvModal)cvModal.classList.remove('show')};
+document.getElementById('btnSertif').onclick=()=>sertifModal.classList.add('show');document.getElementById('closeSertif').onclick=()=>sertifModal.classList.remove('show');sertifModal.onclick=e=>{if(e.target===sertifModal)sertifModal.classList.remove('show')};
+document.getElementById('openCase').onclick=()=>caseModal.classList.add('show');document.getElementById('closeCase').onclick=()=>caseModal.classList.remove('show');caseModal.onclick=e=>{if(e.target===caseModal)caseModal.classList.remove('show')};
+document.getElementById('openCase2').onclick=()=>caseModal2.classList.add('show');document.getElementById('closeCase2').onclick=()=>caseModal2.classList.remove('show');caseModal2.onclick=e=>{if(e.target===caseModal2)caseModal2.classList.remove('show')};
+document.getElementById('openLiveDemo').onclick=openLiveDemo;
+document.getElementById('btnLiveFromCase').onclick=()=>{caseModal.classList.remove('show');setTimeout(openLiveDemo,200);};
+document.getElementById('closeLiveDemo').onclick=closeLiveDemo;liveDemoModal.onclick=e=>{if(e.target===liveDemoModal)closeLiveDemo()};
+document.getElementById('openExpDetail').onclick=()=>expDetailModal.classList.add('show');document.getElementById('closeExpDetail').onclick=()=>expDetailModal.classList.remove('show');expDetailModal.onclick=e=>{if(e.target===expDetailModal)expDetailModal.classList.remove('show')};
+document.getElementById('openExpDoc').onclick=()=>expDocModal.classList.add('show');document.getElementById('closeExpDoc').onclick=()=>expDocModal.classList.remove('show');expDocModal.onclick=e=>{if(e.target===expDocModal)expDocModal.classList.remove('show')};
+const imgs=["https://drive.google.com/thumbnail?id=1G5HFezJF5cs5toAFE2XojnihLO66Mhhw&sz=w1000","https://drive.google.com/thumbnail?id=1T_e-l5DeqaFjFr-HmOyCtB5NIDE9MQDv&sz=w1000","https://drive.google.com/thumbnail?id=17Iam6Uo-YpC84OWn9WWV5mvtqU0n7AE7&sz=w1000","https://drive.google.com/thumbnail?id=1i4QcKSErGJb-BfMdv7jM5Aug78giLsh4&sz=w1000","https://drive.google.com/thumbnail?id=1l4dVzes-TX2CMXcNR0h4eiwvCDR5fPGd&sz=w1000","https://drive.google.com/thumbnail?id=1TyV9lnF0H9-PHbqgYr-cK7-DQZavQ2pW&sz=w1000","https://drive.google.com/thumbnail?id=1F5v86ju8FU-y8GCt_ml603fk2yvJ4prU&sz=w1000","https://drive.google.com/thumbnail?id=1lsnil6aT1RsAXnUUxXZXfcU86Rasja6s&sz=w1000","https://drive.google.com/thumbnail?id=1psNEf3acT7E9vjf6Q_OiRCyjgC7ZKJDk&sz=w1000","https://drive.google.com/thumbnail?id=1O9jvTS0LmDzx-g4fiI_cI8MO9LlLuY22&sz=w1000","https://drive.google.com/thumbnail?id=1K6dW_v8Lx6PvAcB1s1jPBz6ST1jIAhNq&sz=w1000","https://drive.google.com/thumbnail?id=1TVOLGXIsU7GrsWGchzpL4NZToOOuifFp&sz=w1000","https://drive.google.com/thumbnail?id=1G0Pc13hqeW_w3DrrZqLECxDEgCDOVolK&sz=w1000","https://drive.google.com/thumbnail?id=1JkB1zv3CIM3q-oY8gvrBgXN9bq832pV_&sz=w1000"];
+let cur=0;const imgEl=document.getElementById('caseImg');const dotsEl=document.getElementById('caseDots');function renderDots(){dotsEl.innerHTML='';imgs.forEach((_,i)=>{const s=document.createElement('span');if(i===cur)s.classList.add('active');s.onclick=()=>{cur=i;updateGallery()};dotsEl.appendChild(s);});}function updateGallery(){imgEl.src=imgs[cur];renderDots();}document.getElementById('prevImg').onclick=()=>{cur=(cur-1+imgs.length)%imgs.length;updateGallery()};document.getElementById('nextImg').onclick=()=>{cur=(cur+1)%imgs.length;updateGallery()};renderDots();
+const imgs2=["https://drive.google.com/thumbnail?id=1nL8phfym-yR97OSB8bopUPGeVqxPryVG&sz=w1000","https://drive.google.com/thumbnail?id=1qOgJEUgTXRhGIu87P7SdDM5XeNJ_W-r0&sz=w1000","https://drive.google.com/thumbnail?id=1OQnbgRvWDuYbbUzgnfNrbuzfpF3cThKp&sz=w1000","https://drive.google.com/thumbnail?id=14fLC-3wgtVWCSQbKGZazVmYapQowsm-I&sz=w1000","https://drive.google.com/thumbnail?id=1QxCYbf8kkk-P_IlIGdLrAagIZKjJJ5Wl&sz=w1000","https://drive.google.com/thumbnail?id=1n30RjqxiCJMLH8Tk0iMltoczaOHXisiW&sz=w1000","https://drive.google.com/thumbnail?id=1rV6WlDuU82R6L8MZysvWfPX6KBeZz2dz&sz=w1000","https://drive.google.com/thumbnail?id=1i-NX1LOlaXKK1Uviw7CLqMXp_Dr9PW7h&sz=w1000","https://drive.google.com/thumbnail?id=1f4BcgRl10PZYJqwal4FqNhH3lt7QGBO1&sz=w1000","https://drive.google.com/thumbnail?id=1zcoBfuHx4y0zddgiyPEaat55OEJsRe1v&sz=w1000"];
+let cur2=0;const imgEl2=document.getElementById('caseImg2');const dotsEl2=document.getElementById('caseDots2');function renderDots2(){dotsEl2.innerHTML='';imgs2.forEach((_,i)=>{const s=document.createElement('span');if(i===cur2)s.classList.add('active');s.onclick=()=>{cur2=i;updateGallery2()};dotsEl2.appendChild(s);});}function updateGallery2(){imgEl2.src=imgs2[cur2];renderDots2();}document.getElementById('prevImg2').onclick=()=>{cur2=(cur2-1+imgs2.length)%imgs2.length;updateGallery2()};document.getElementById('nextImg2').onclick=()=>{cur2=(cur2+1)%imgs2.length;updateGallery2()};renderDots2();
+const expDocImgs=["https://drive.google.com/thumbnail?id=1G5HFezJF5cs5toAFE2XojnihLO66Mhhw&sz=w1000","https://drive.google.com/thumbnail?id=1T_e-l5DeqaFjFr-HmOyCtB5NIDE9MQDv&sz=w1000","https://drive.google.com/thumbnail?id=17Iam6Uo-YpC84OWn9WWV5mvtqU0n7AE7&sz=w1000"];
+let curExpDoc=0;const expDocImgEl=document.getElementById('expDocImg');const expDocDotsEl=document.getElementById('expDocDots');function renderExpDocDots(){expDocDotsEl.innerHTML='';expDocImgs.forEach((_,i)=>{const s=document.createElement('span');if(i===curExpDoc)s.classList.add('active');s.onclick=()=>{curExpDoc=i;updateExpDocGallery()};expDocDotsEl.appendChild(s);});}function updateExpDocGallery(){expDocImgEl.src=expDocImgs[curExpDoc];renderExpDocDots();}document.getElementById('prevExpDoc').onclick=()=>{curExpDoc=(curExpDoc-1+expDocImgs.length)%expDocImgs.length;updateExpDocGallery()};document.getElementById('nextExpDoc').onclick=()=>{curExpDoc=(curExpDoc+1)%expDocImgs.length;updateExpDocGallery()};renderExpDocDots();
 </script>
 </body>
 </html>
