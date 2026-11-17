@@ -10,7 +10,7 @@ html,body{width:100%;height:100%;background:#000}
 html,body,.wrap,.nav,.case-scroll,.case-dots{scrollbar-width:none;-ms-overflow-style:none}
 ::-webkit-scrollbar{width:0 !important;height:0 !important;display:none !important;background:#000 !important}
 body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow:hidden}
-.wrap{width:100%;height:100vh;background:#000;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth;scroll-snap-type:y mandatory}
+.wrap{width:100%;height:100vh;background:#000;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth;scroll-snap-type:none}
 .wrap::-webkit-scrollbar{width:0}
 .navbar{width:92%;max-width:1100px;margin:12px auto 0 auto;position:sticky;top:12px;z-index:999;display:flex;justify-content:space-between;align-items:center;background:transparent;gap:10px}
 .logo{width:34px;height:34px;background:#fff;color:#000;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;flex-shrink:0}
@@ -144,15 +144,8 @@ body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow:hidden}
 .closeBtn{background:#222;border:1px solid #333;color:#fff;width:32px;height:32px;border-radius:8px;cursor:pointer}
 .modalBody{flex:1;background:#000;display:flex;align-items:center;justify-content:center}
 .modalBody iframe{width:100%;height:100%;border:none;background:#fff}
-/* FIX MAS - SEMUA TOMBOL ANIMASI NAIK PAS KURSOR DIARAHKAN MAS */
-button, .c-btn, .proj-btn, .b1, .b2, .case-btn-white, .case-btn-dark, .closeBtn, .case-close, .cap-item, .info-card, .exp-card, .proj-card, .sertif-box{
-  transition: all .28s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-  will-change: transform;
-}
-.b1:hover, .b2:hover, .proj-btn:hover, .c-btn:hover, .case-btn-white:hover, .case-btn-dark:hover{
-  transform: translateY(-4px) scale(1.02) !important;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
-}
+button, .c-btn, .proj-btn, .b1, .b2, .case-btn-white, .case-btn-dark, .closeBtn, .case-close, .cap-item, .info-card, .exp-card, .proj-card, .sertif-box{transition: all .28s cubic-bezier(0.34, 1.56, 0.64, 1) !important;will-change: transform}
+.b1:hover, .b2:hover, .proj-btn:hover, .c-btn:hover, .case-btn-white:hover, .case-btn-dark:hover{transform: translateY(-4px) scale(1.02) !important;box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important}
 .b1:hover{box-shadow:0 10px 25px rgba(106,184,191,.4) !important}
 .proj-btn:hover{border-color:#3a3a3a !important}
 .c-btn-dark:hover{background:#222 !important;border-color:#3a3a3a !important}
@@ -164,6 +157,17 @@ button, .c-btn, .proj-btn, .b1, .b2, .case-btn-white, .case-btn-dark, .closeBtn,
 .closeBtn:hover{transform: translateY(-2px) scale(1.05) !important;background:#2a2a2a !important}
 .case-close:hover{transform: rotate(90deg) translateY(-1px) scale(1.05) !important}
 .case-arrow:hover{transform: translateY(-50%) scale(1.15) !important}
+/* PRELOADER GEAR - HITAM FULL - TANPA NAMA */
+#preloader{position:fixed;inset:0;background:#000 !important;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .6s ease}
+#preloader.hide{opacity:0;pointer-events:none}
+.pre-gear{width:120px;height:120px;animation:gearPop 1s cubic-bezier(.34,1.56,.64,1) forwards, gearSpin 2.5s ease-in-out infinite 1s}
+@keyframes gearPop{0%{transform:scale(0) rotate(-90deg);opacity:0}100%{transform:scale(1) rotate(0deg);opacity:1}}
+@keyframes gearSpin{0%,100%{transform:scale(1) rotate(0deg)}50%{transform:scale(1.08) rotate(15deg)}}
+.pre-text{color:#5dbcc5;font-size:13px;font-weight:700;letter-spacing:3px;animation:fadeUp 1s ease .3s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.pre-bar{width:160px;height:3px;background:#222;border-radius:99px;overflow:hidden}
+.pre-bar i{display:block;height:100%;width:0%;background:#5dbcc5;border-radius:99px;animation:loadBar 3.5s ease forwards}
+@keyframes loadBar{to{width:100%}}
 @media(max-width:768px){
   .wrap{scroll-snap-type:none}
   .navbar{position:sticky;top:0;margin:0 auto;padding:10px 0 8px 0;width:100%;background:#000;justify-content:flex-start}
@@ -185,29 +189,16 @@ button, .c-btn, .proj-btn, .b1, .b2, .case-btn-white, .case-btn-dark, .closeBtn,
   .case-content{flex-direction:column}
   .case-left{border-right:none;border-bottom:1px solid #222}
 }
-  /* PRELOADER GEAR - HITAM FULL */
-#preloader{position:fixed;inset:0;background:#000 !important;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .6s ease}
-#preloader.hide{opacity:0;pointer-events:none}
-.pre-gear{width:110px;height:110px;animation:gearPop 1s cubic-bezier(.34,1.56,.64,1) forwards, gearSpin 2.5s ease-in-out infinite 1s}
-@keyframes gearPop{0%{transform:scale(0) rotate(-90deg);opacity:0}100%{transform:scale(1) rotate(0deg);opacity:1}}
-@keyframes gearSpin{0%,100%{transform:scale(1) rotate(0deg)}50%{transform:scale(1.08) rotate(15deg)}}
-.pre-text{color:#5dbcc5;font-size:13px;font-weight:700;letter-spacing:3px;animation:fadeUp 1s ease .3s both}
-.pre-name{color:#fff;font-size:15px;font-weight:800;letter-spacing:1px;animation:fadeUp 1s ease .5s both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.pre-bar{width:160px;height:3px;background:#222;border-radius:99px;overflow:hidden}
-.pre-bar i{display:block;height:100%;width:0%;background:#5dbcc5;border-radius:99px;animation:loadBar 3.5s ease forwards}
-@keyframes loadBar{to{width:100%}}
 </style>
 </head>
 <body>
-  <div id="preloader">
-  <!-- GEAR SUDAH KOKO SESUAIKAN WARNA PORTO MAS - TEAL, BUKAN KUNING LAGI -->
-  <svg class="pre-gear" viewBox="0 0 100 100" fill="none">
-    <path d="M50 5 L58 12 L68 10 L73 20 L83 22 L84 33 L93 38 L90 48 L93 58 L84 63 L83 73 L73 75 L68 85 L58 83 L50 90 L42 83 L32 85 L27 75 L17 73 L16 63 L7 58 L10 48 L7 38 L16 33 L17 22 L27 20 L32 10 L42 12 Z" fill="#1c3435" stroke="#5dbcc5" stroke-width="3"/>
-    <circle cx="50" cy="48" r="18" fill="#5dbcc5"/>
-    <circle cx="50" cy="48" r="8" fill="#000"/>
+<div id="preloader">
+  <svg class="pre-gear" viewBox="0 0 24 24" width="120" height="120" fill="none">
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1 -2.83 2.83l-.06-.06a1.65 1.65 0 0 0 -1.82-.33 1.65 1.65 0 0 0 -1 1.51V21a2 2 0 1 1 -4 0v-.09a1.65 1.65 0 0 0 -1-1.51 1.65 1.65 0 0 0 -1.82.33l-.06.06a2 2 0 1 1 -2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0 -1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0 -.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0 -.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0 -1.51 1z" fill="#3d4f5f"/>
+    <circle cx="12" cy="12" r="4.2" fill="#fff"/>
+    <circle cx="12" cy="12" r="3.2" fill="#ffc107"/>
+    <circle cx="12" cy="12" r="1.3" fill="#3d4f5f"/>
   </svg>
-  <div class="pre-name">MOH ALFIAN AZWAR ANAS</div>
   <div class="pre-text">LOADING...</div>
   <div class="pre-bar"><i></i></div>
 </div>
@@ -272,12 +263,9 @@ let cur=0;const imgEl=document.getElementById('caseImg');const dotsEl=document.g
 const imgs2=["https://drive.google.com/thumbnail?id=1nL8phfym-yR97OSB8bopUPGeVqxPryVG&sz=w1000","https://drive.google.com/thumbnail?id=1qOgJEUgTXRhGIu87P7SdDM5XeNJ_W-r0&sz=w1000","https://drive.google.com/thumbnail?id=1OQnbgRvWDuYbbUzgnfNrbuzfpF3cThKp&sz=w1000","https://drive.google.com/thumbnail?id=14fLC-3wgtVWCSQbKGZazVmYapQowsm-I&sz=w1000","https://drive.google.com/thumbnail?id=1QxCYbf8kkk-P_IlIGdLrAagIZKjJJ5Wl&sz=w1000","https://drive.google.com/thumbnail?id=1n30RjqxiCJMLH8Tk0iMltoczaOHXisiW&sz=w1000","https://drive.google.com/thumbnail?id=1rV6WlDuU82R6L8MZysvWfPX6KBeZz2dz&sz=w1000","https://drive.google.com/thumbnail?id=1i-NX1LOlaXKK1Uviw7CLqMXp_Dr9PW7h&sz=w1000","https://drive.google.com/thumbnail?id=1f4BcgRl10PZYJqwal4FqNhH3lt7QGBO1&sz=w1000","https://drive.google.com/thumbnail?id=1zcoBfuHx4y0zddgiyPEaat55OEJsRe1v&sz=w1000"];
 let cur2=0;const imgEl2=document.getElementById('caseImg2');const dotsEl2=document.getElementById('caseDots2');function renderDots2(){dotsEl2.innerHTML='';imgs2.forEach((_,i)=>{const s=document.createElement('span');if(i===cur2)s.classList.add('active');s.onclick=()=>{cur2=i;updateGallery2()};dotsEl2.appendChild(s);});}function updateGallery2(){imgEl2.src=imgs2[cur2];renderDots2();}document.getElementById('prevImg2').onclick=()=>{cur2=(cur2-1+imgs2.length)%imgs2.length;updateGallery2()};document.getElementById('nextImg2').onclick=()=>{cur2=(cur2+1)%imgs2.length;updateGallery2()};renderDots2();
 const expDocImgs=["https://drive.google.com/thumbnail?id=1G5HFezJF5cs5toAFE2XojnihLO66Mhhw&sz=w1000","https://drive.google.com/thumbnail?id=1T_e-l5DeqaFjFr-HmOyCtB5NIDE9MQDv&sz=w1000","https://drive.google.com/thumbnail?id=17Iam6Uo-YpC84OWn9WWV5mvtqU0n7AE7&sz=w1000"];
-let curExpDoc=0;const expDocImgEl=document.getElementById('expDocImg');const expDocDotsEl=document.getElementById('expDocDots');function renderExpDocDots(){expDocDotsEl.innerHTML='';expDocImgs.forEach((_,i)=>{const s=document.createElement('span');if(i===curExpDoc)s.classList.add('active');s.onclick=()=>{curExpDoc=i;updateExpDocGallery()};expDocDotsEl.appendChild(s);});}function updateExpDocGallery(){expDocImgEl.src=expDocImgs[curExpDoc];renderExpDocDots();}document.getElementById('prevExpDoc').onclick=()=>{curExpDoc=(curExpDoc-1+expDocImgs.length)%expDocImgs.length;updateExpDocGallery()};document.getElementById('nextExpDoc').onclick=()=>{curExpDoc=(curExpDoc+1)%expDocImgs.length;updateExpDocGallery()};renderExpDocDots();
-// PRELOADER 4 DETIK - GANTI 4000 JADI 40000 KALAU MAU 40 DETIK
-setTimeout(()=>{
-  document.getElementById('preloader').classList.add('hide');
-  setTimeout(()=>{ document.getElementById('preloader').style.display='none'; }, 600);
-}, 10000);
+let curExpDoc=0;const expDocImgEl=document.getElementById('expDocImg');const expDocDotsEl=document.getElementById('expDocDots');function renderExpDocDots(){expDocDotsEl.innerHTML='';expDocImgs.forEach((_,i)=>{const s=document.createElement('span');if(i===curExpDoc)s.classList.add('active');s.onclick=()=>{curExpDoc=i;updateExpDocGallery()};expDocDotsEl.innerHTML='';});}function updateExpDocGallery(){expDocImgEl.src=expDocImgs[curExpDoc];renderExpDocDots();}document.getElementById('prevExpDoc').onclick=()=>{curExpDoc=(curExpDoc-1+expDocImgs.length)%expDocImgs.length;updateExpDocGallery()};document.getElementById('nextExpDoc').onclick=()=>{curExpDoc=(curExpDoc+1)%expDocImgs.length;updateExpDocGallery()};renderExpDocDots();
+// PRELOADER - 4 DETIK, GANTI 4000 JADI 40000 KALAU MAU 40 DETIK
+setTimeout(()=>{document.getElementById('preloader').classList.add('hide');setTimeout(()=>{document.getElementById('preloader').style.display='none';},600);},4000);
 </script>
 </body>
 </html>
