@@ -255,6 +255,40 @@ button, .c-btn, .proj-btn, .b1, .b2, .case-btn-white, .case-btn-dark, .closeBtn,
   .case-images{height:360px !important}
   .case-images img{object-fit:contain !important}
 }
+  /* === FIX BULAT GEDE + TITIK-TITIK === */
+#preloader{
+  animation:preHidePaksa 0.5s ease 6s forwards !important;
+}
+@keyframes preHidePaksa{
+  to{opacity:0 !important;visibility:hidden !important;pointer-events:none !important;display:none !important}
+}
+.pre-gear-wrap,.pre-gear{
+  pointer-events:none !important;
+}
+/* TITIK-TITIK GALERI BIAR GAK NUMPUK DI FOTO */
+.case-dots{
+  position:relative !important;
+  bottom:auto !important;
+  left:auto !important;
+  transform:none !important;
+  margin:10px auto 0 auto !important;
+  background:transparent !important;
+  padding:0 !important;
+  justify-content:center !important;
+  flex-wrap:wrap !important;
+  max-width:100% !important;
+}
+.case-images{
+  padding-bottom:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+}
+.case-images img{
+  flex:1 !important;
+}
+.case-arrow{
+  z-index:10 !important;
+}
 </style>
 </head>
 <body>
