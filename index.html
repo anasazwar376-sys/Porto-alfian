@@ -147,14 +147,16 @@ body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow:hidden}
 .jobdesk-right{flex:1;min-width:0;background:#0f0f0f;border:1px solid #262626;border-radius:14px;padding:0;min-height:280px;overflow:hidden;display:flex;gap:0;align-items:stretch}
 .jobdesk-right-info{flex:1;min-width:0;padding:16px}
 .jobdesk-right-title{font-size:14px;font-weight:800;color:#fff;margin-bottom:10px}
-.jobdesk-right-text{font-size:12.5px;color:#8a8a8a;line-height:1.6}
+.jobdesk-right-text{font-size:12.5px;color:#9a9a9a;line-height:1.7;text-align:justify;white-space:pre-line}
 .jobdesk-photo-wrap{width:300px;flex-shrink:0;margin-left:auto}
 .jobdesk-photo{width:100%;height:320px;background:#000;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
-.jobdesk-photo img{width:100%;height:100%;object-fit:cover;background:#000}
-.jobdesk-photo-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;background:rgba(0,0,0,.6);padding:6px 10px;border-radius:20px}
+.jobdesk-photo img{width:100%;height:100%;object-fit:cover;background:#000;transition:transform .45s ease,opacity .45s ease;will-change:transform,opacity}
+.jobdesk-photo img.slide-out{transform:translateX(-100%);opacity:0}
+.jobdesk-photo img.slide-in{transform:translateX(100%);opacity:0}
+.jobdesk-photo-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;background:rgba(0,0,0,.6);padding:6px 10px;border-radius:20px;z-index:2}
 .jobdesk-photo-dots span{width:6px;height:6px;background:#555;border-radius:50%}
 .jobdesk-photo-dots span.active{width:22px;background:#fff}
-.jobdesk-photo-count{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.65);border:1px solid #333;color:#fff;font-size:11px;font-weight:700;padding:4px 9px;border-radius:20px}
+.jobdesk-photo-count{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.65);border:1px solid #333;color:#fff;font-size:11px;font-weight:700;padding:4px 9px;border-radius:20px;z-index:2}
 #liveDemoModal .case-container{width:100%;max-width:860px;height:auto;max-height:90vh;background:#191919;border:1px solid #2a2a2a;border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
 .live-video-box{width:100%;aspect-ratio:16/9;height:auto;background:#000;overflow:hidden;position:relative;flex-shrink:0}
 .live-video-box iframe{width:100%;height:100%;border:none;background:#000;position:absolute;inset:0}
@@ -281,7 +283,7 @@ document.getElementById('openJobdeskFromDetail').onclick=()=>{document.getElemen
 document.getElementById('backToExpDetail').onclick=()=>{if(jobdeskTimer)clearInterval(jobdeskTimer);document.getElementById('jobdeskMenu').classList.remove('show');document.getElementById('expDetailMain').style.display='block';};
 document.getElementById('closeExpDoc').onclick=()=>expDocModal.classList.remove('show');
 const jobdeskData={
-  wiring:{title:'Control Panel Wiring',text:'Perakitan dan wiring panel kontrol sesuai diagram elektrik.',imgs:["https://drive.google.com/thumbnail?id=1wcyN9TJwfH5Ga2565VwoV8KfNZAXREho&sz=w1000","https://drive.google.com/thumbnail?id=1yN0WivLonWISzy53PMMkhSy2q5b-ErE9&sz=w1000","https://drive.google.com/thumbnail?id=1nvI-YXxhqBanIb4Uq-hgMFdfCGrE7G5M&sz=w1000","https://drive.google.com/thumbnail?id=1kJaIQJyrHeCGTvqsoK3t_yToG6qE_rtD&sz=w1000"]},
+  wiring:{title:'Control Panel Wiring',text:'Selama magang di PT Phase Delta Control, saya terlibat dalam perakitan dan wiring panel kontrol untuk kebutuhan otomasi dan monitoring industri. Pekerjaan meliputi pemasangan komponen elektrikal, penataan kabel, serta pengawatan sesuai diagram elektrik dan pengujian fungsi panel.\n\nSalah satu panel yang dirakit dipersiapkan untuk implementasi di pabrik AQUA Klaten. Pengalaman ini memberikan pemahaman praktis mengenai konfigurasi panel, instalasi komponen kontrol, dan pemeriksaan panel sebelum digunakan di lingkungan industri.',imgs:["https://drive.google.com/thumbnail?id=1wcyN9TJwfH5Ga2565VwoV8KfNZAXREho&sz=w1000","https://drive.google.com/thumbnail?id=1yN0WivLonWISzy53PMMkhSy2q5b-ErE9&sz=w1000","https://drive.google.com/thumbnail?id=1nvI-YXxhqBanIb4Uq-hgMFdfCGrE7G5M&sz=w1000","https://drive.google.com/thumbnail?id=1kJaIQJyrHeCGTvqsoK3t_yToG6qE_rtD&sz=w1000"]},
   'atg-install':{title:'ATG Installation & Calibration',text:'Instalasi probe ATG dan kalibrasi tangki BBM.',imgs:[]},
   'atg-qc':{title:'ATG Quality Control',text:'Pengujian QC perangkat ATG sebelum instalasi.',imgs:[]},
   valve:{title:'Motorized Valve Testing',text:'Inspeksi dan testing motorized valve.',imgs:[]},
@@ -301,9 +303,21 @@ function showJobdesk(key){
   wrapEl.innerHTML='<div class="jobdesk-photo"><img id="jobdeskImg" src="'+d.imgs[0]+'"><div class="jobdesk-photo-count" id="jobdeskCount">1 / '+d.imgs.length+'</div><div class="jobdesk-photo-dots" id="jobdeskDots"></div></div>';
   const dotsEl=document.getElementById('jobdeskDots');
   function renderJobdeskDots(){dotsEl.innerHTML='';d.imgs.forEach((_,i)=>{const s=document.createElement('span');if(i===jobdeskCur)s.classList.add('active');dotsEl.appendChild(s);});}
-  function updateJobdeskPhoto(){document.getElementById('jobdeskImg').src=d.imgs[jobdeskCur];document.getElementById('jobdeskCount').textContent=(jobdeskCur+1)+' / '+d.imgs.length;renderJobdeskDots();}
+  function updateJobdeskPhoto(){
+    const imgEl=document.getElementById('jobdeskImg');if(!imgEl)return;
+    imgEl.classList.add('slide-out');
+    setTimeout(()=>{
+      jobdeskCur=(jobdeskCur+1)%d.imgs.length;
+      imgEl.src=d.imgs[jobdeskCur];
+      imgEl.classList.remove('slide-out');
+      imgEl.classList.add('slide-in');
+      requestAnimationFrame(()=>{requestAnimationFrame(()=>{imgEl.classList.remove('slide-in');});});
+      document.getElementById('jobdeskCount').textContent=(jobdeskCur+1)+' / '+d.imgs.length;
+      renderJobdeskDots();
+    },450);
+  }
   renderJobdeskDots();
-  jobdeskTimer=setInterval(()=>{jobdeskCur=(jobdeskCur+1)%d.imgs.length;updateJobdeskPhoto();},1800);
+  jobdeskTimer=setInterval(updateJobdeskPhoto,1800);
 }
 document.querySelectorAll('.jobdesk-btn').forEach(b=>{b.onclick=()=>showJobdesk(b.dataset.jobdesk)});
 const imgs=["https://drive.google.com/thumbnail?id=1G5HFezJF5cs5toAFE2XojnihLO66Mhhw&sz=w1000","https://drive.google.com/thumbnail?id=1T_e-l5DeqaFjFr-HmOyCtB5NIDE9MQDv&sz=w1000","https://drive.google.com/thumbnail?id=17Iam6Uo-YpC84OWn9WWV5mvtqU0n7AE7&sz=w1000","https://drive.google.com/thumbnail?id=1i4QcKSErGJb-BfMdv7jM5Aug78giLsh4&sz=w1000","https://drive.google.com/thumbnail?id=1l4dVzes-TX2CMXcNR0h4eiwvCDR5fPGd&sz=w1000","https://drive.google.com/thumbnail?id=1TyV9lnF0H9-PHbqgYr-cK7-DQZavQ2pW&sz=w1000","https://drive.google.com/thumbnail?id=1F5v86ju8FU-y8GCt_ml603fk2yvJ4prU&sz=w1000","https://drive.google.com/thumbnail?id=1lsnil6aT1RsAXnUUxXZXfcU86Rasja6s&sz=w1000","https://drive.google.com/thumbnail?id=1psNEf3acT7E9vjf6Q_OiRCyjgC7ZKJDk&sz=w1000","https://drive.google.com/thumbnail?id=1O9jvTS0LmDzx-g4fiI_cI8MO9LlLuY22&sz=w1000","https://drive.google.com/thumbnail?id=1K6dW_v8Lx6PvAcB1s1jPBz6ST1jIAhNq&sz=w1000","https://drive.google.com/thumbnail?id=1TVOLGXIsU7GrsWGchzpL4NZToOOuifFp&sz=w1000","https://drive.google.com/thumbnail?id=1G0Pc13hqeW_w3DrrZqLECxDEgCDOVolK&sz=w1000","https://drive.google.com/thumbnail?id=1JkB1zv3CIM3q-oY8gvrBgXN9bq832pV_&sz=w1000"];
