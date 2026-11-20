@@ -82,13 +82,14 @@ body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow:hidden}
 .proj-btn{border:1px solid #2a2a2a;background:#151515;color:#5dbcc5;font-size:11px;font-weight:600;padding:7px 12px;border-radius:8px;cursor:pointer}
 .proj-btn.live{color:#7ec87e}
 .capabilities-section{width:92%;max-width:1100px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0;scroll-snap-align:start}
+.capabilities-section > div{width:100%}
 .cap-label{color:#5dbcc5;font-size:11px;font-weight:700;letter-spacing:1.5px;margin-bottom:14px}
 .cap-title{font-size:32px;font-weight:900;margin-bottom:24px;line-height:1.1}
-.cap-box{background:#101010;border:1px solid #232323;border-radius:18px;padding:22px}
-.cap-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px}
-.cap-item{background:#191919;border:1px solid #252525;border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:#e0e0e0;transition:all .3s ease}
+.cap-box{background:#101010;border:1px solid #232323;border-radius:18px;padding:22px;width:100%;box-sizing:border-box}
+.cap-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;width:100%}
+.cap-item{background:#191919;border:1px solid #252525;border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;color:#e0e0e0;transition:all .3s ease;min-height:52px;line-height:1.3;box-sizing:border-box}
 .cap-item:hover{transform:translateY(-3px);background:#1e1e1e;border-color:#333}
-.cap-dot{width:6px;height:6px;background:#5dbcc5;border-radius:50%;flex-shrink:0}
+.cap-dot{width:7px;height:7px;background:#5dbcc5;border-radius:50%;flex-shrink:0}
 .contact-section{width:92%;max-width:1100px;margin:0 auto;min-height:80vh;display:flex;flex-direction:column;justify-content:center;padding:60px 0 40px 0;scroll-snap-align:start}
 .contact-box{background:#101010;border:1px solid #232323;border-radius:20px;padding:46px 20px;text-align:center}
 .contact-kicker{color:#5dbcc5;font-size:11px;font-weight:700;letter-spacing:1.8px;margin-bottom:14px}
@@ -178,44 +179,13 @@ button, .c-btn, .proj-btn, .b1, .b2, .case-btn-white, .case-btn-dark, .closeBtn,
   .exp-section,.project-section,.capabilities-section,.contact-section{min-height:auto;padding:30px 0;scroll-snap-align:none}
   .exp-top{flex-direction:column}
   .project-grid{grid-template-columns:1fr}
-  .cap-grid{grid-template-columns:1fr 1fr}
+  .cap-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .cap-box{padding:16px}
   .case-container{height:92vh}
   #liveDemoModal .case-container{height:auto;max-height:85vh}
   .case-images{height:260px}
   .case-content{flex-direction:column}
   .case-left{border-right:none;border-bottom:1px solid #222}
-}
- /* TAMBAHAN 3 - PERBAIKAN TULISAN KEPOTONG */
-.capabilities-section > div{
-  width:100% !important;
-}
-.cap-box{
-  width:100% !important;
-  max-width:1100px !important;
-  padding:24px !important;
-  box-sizing:border-box !important;
-}
-.cap-grid{
-  display:grid !important;
-  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
-  gap:14px !important;
-  width:100% !important;
-}
-.cap-item{
-  width:100% !important;
-  height:auto !important;
-  min-height:56px !important;
-  padding:12px 14px !important;
-  white-space:normal !important;
-  overflow:visible !important;
-  text-overflow:clip !important;
-  line-height:1.3 !important;
-  text-align:left !important;
-  word-break:normal !important;
-}
-@media(max-width:768px){
-  .cap-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
-  .cap-item{font-size:12px !important;min-height:52px !important}
 }
 </style>
 </head>
@@ -230,9 +200,7 @@ button, .c-btn, .proj-btn, .b1, .b2, .case-btn-white, .case-btn-dark, .closeBtn,
     <div class="proj-card"><div class="proj-year">2024</div><div class="proj-card-title">IoT-Based Greenhouse Monitoring System</div><div class="proj-card-desc">Sistem monitoring greenhouse tanaman melon berbasis IoT untuk memantau suhu, kelembapan udara, intensitas cahaya, dan kelembapan tanah secara real-time melalui aplikasi smartphone.</div><div class="proj-tags"><span class="proj-tag">IoT</span><span class="proj-tag">ESP32</span><span class="proj-tag">Sensor Integration</span><span class="proj-tag">Firebase</span><span class="proj-tag">+1</span></div><div class="proj-actions"><button class="proj-btn" id="openCase2">Lihat Detail →</button></div></div>
   </div></div></section>
   <section id="keahlian" class="capabilities-section"><div><div class="cap-label">CAPABILITIES</div><div class="cap-title">Tech stack & keahlian teknis utama.</div><div class="cap-box"><div class="cap-grid">
-       <div class="cap-grid">
         <div class="cap-item"><span class="cap-dot"></span> AutoCAD</div><div class="cap-item"><span class="cap-dot"></span> Autodesk Inventor</div><div class="cap-item"><span class="cap-dot"></span> PLC Programming</div><div class="cap-item"><span class="cap-dot"></span> SCADA &amp; HMI</div><div class="cap-item"><span class="cap-dot"></span> Control Panel Assembly</div><div class="cap-item"><span class="cap-dot"></span> Electrical Wiring &amp; Installation</div><div class="cap-item"><span class="cap-dot"></span> Electrical Schematic Design</div><div class="cap-item"><span class="cap-dot"></span> Industrial Instrumentation</div><div class="cap-item"><span class="cap-dot"></span> Modbus Communication</div><div class="cap-item"><span class="cap-dot"></span> Pneumatic System</div><div class="cap-item"><span class="cap-dot"></span> Arduino &amp; ESP32 (IoT)</div><div class="cap-item"><span class="cap-dot"></span> Welding &amp; Mechanical Fabrication</div>
-      </div>
       </div></div></div></section>
   <section id="kontak" class="contact-section"><div class="contact-box"><div class="contact-kicker">LET'S CONNECT</div><div class="contact-title">Siap berkolaborasi dan berkoneksi</div><div class="contact-desc">Terbuka untuk peluang kerja full-time, proyek independen, atau diskusi teknis seputar integrasi sistem end-to-end.</div><div class="contact-btns"><button class="c-btn c-btn-email" id="btnCopyEmail"><span id="emailText">Salin Email</span></button><a class="c-btn c-btn-dark" href="https://www.linkedin.com/in/alfian-azwar" target="_blank">LinkedIn</a><a class="c-btn c-btn-dark" href="https://wa.me/6283115861900?text=Halo%20mas%20Alfian" target="_blank">WhatsApp</a></div></div></section>
   <footer class="footer"><p>© 2026 Moh Alfian Azwar Anas. All rights reserved.</p><p>Built with passion for Industrial Automation & IoT.</p></footer>
