@@ -153,8 +153,10 @@ body{background:#000;color:#fff;font-family:'Inter',sans-serif;overflow:hidden}
 #liveDemoModal .case-container{width:100%;max-width:860px;height:auto;max-height:90vh;background:#191919;border:1px solid #2a2a2a;border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
 .live-video-box{width:100%;height:65vh;min-height:320px;background:#000;overflow:hidden;position:relative;flex-shrink:0}
 .live-video-box iframe{width:100%;height:100%;border:none;background:#000;position:absolute;inset:0}
-#cvModal,#sertifModal,#suratModal{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
-#cvModal.show,#sertifModal.show,#suratModal.show{display:flex}
+#cvModal,#sertifModal{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
+#cvModal.show,#sertifModal.show{display:flex}
+#suratModal{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:99999 !important;display:none;align-items:center;justify-content:center;padding:20px}
+#suratModal.show{display:flex !important}
 .modalBox{width:90%;max-width:900px;height:88vh;background:#111;border:1px solid #2a2a2a;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
 .modalHead{padding:14px 18px;background:#151515;border-bottom:1px solid #222;display:flex;justify-content:space-between;align-items:center}
 .modalHead span{font-size:13px;font-weight:700;color:#ccc}
@@ -265,8 +267,18 @@ button, .c-btn, .proj-btn, .b1, .b2, .case-btn-white, .case-btn-dark, .closeBtn,
 <div id="projDocModal"><div class="case-container"><div class="case-head"><div class="case-head-left"><div class="case-kicker live">PROJECT & DOCUMENTATION</div><div class="case-title" id="projDocTitle">Project & Documentation - PT Phase Delta Control</div></div><div class="case-close" id="closeProjDoc">✕</div></div><div class="case-scroll"><div class="case-images"><div class="case-img-wrap"><div class="case-arrow left" id="prevProjDoc">‹</div><img id="projDocImg" src="https://drive.google.com/thumbnail?id=1T_e-l5DeqaFjFr-HmOyCtB5NIDE9MQDv&sz=w1600" draggable="false"><div class="case-arrow right" id="nextProjDoc">›</div></div><div class="case-dots" id="projDocDots"></div></div></div></div></div>
 <div id="cvModal"><div class="modalBox"><div class="modalHead"><span>CV - Moh Alfian Azwar Anas</span><button class="closeBtn" id="closeCV">✕</button></div><div class="modalBody"><iframe src="https://drive.google.com/file/d/1n2cpm2APuC7Z41VP6UR_XykhQfTfw0aL/preview"></iframe></div></div></div>
 <div id="sertifModal"><div class="modalBox" style="max-width:1000px"><div class="modalHead"><span>Sertifikat Kompetensi Engineer Mekatronika — BNSP</span><button class="closeBtn" id="closeSertif">✕</button></div><div class="modalBody" style="background:#0a0a0a"><iframe src="https://drive.google.com/file/d/1wO7qXyQgMQ5IO6FnTBch77n1u9qPZ9rH/preview"></iframe></div></div></div>
-<div id="suratModal"><div class="modalBox"><div class="modalHead"><span>Surat - PT Phase Delta Control</span><button class="closeBtn" id="closeSurat">✕</button></div><div class="modalBody"><iframe src="https://drive.google.com/file/d/1KweEeTKv0X7xuhwlS4GI-xESPuLXLAX7/preview"></iframe></div></div></div>
+<div id="suratModal"><div class="modalBox"><div class="modalHead"><span>Surat - PT Phase Delta Control</span><button class="closeBtn" id="closeSurat">✕</button></div><div class="modalBody"><iframe id="suratIframe" src="https://drive.google.com/file/d/1KweEeTKv0X7xuhwlS4GI-xESPuLXLAX7/preview"></iframe></div></div></div>
 <script>
+function openSuratFix(){
+  var ids=['caseModal','caseModal2','liveDemoModal','expDetailModal','projDocModal','cvModal','sertifModal'];
+  for(var i=0;i<ids.length;i++){var m=document.getElementById(ids[i]);if(m){m.classList.remove('show');m.style.display='none';}}
+  try{if(typeof stopWiringSlide==='function')stopWiringSlide();}catch(e){}
+  var s=document.getElementById('suratModal');
+  var f=document.getElementById('suratIframe');
+  if(f){f.src='https://drive.google.com/file/d/1KweEeTKv0X7xuhwlS4GI-xESPuLXLAX7/preview';}
+  if(s){s.classList.add('show');s.style.display='flex';}
+}
+function closeSuratFix(){var s=document.getElementById('suratModal');if(s){s.classList.remove('show');s.style.display='none';}}
 const wrap=document.getElementById('wrap');
 const navLinks=document.querySelectorAll('#nav a');
 const sections=document.querySelectorAll('section[id]');
@@ -294,16 +306,16 @@ function openLiveDemo(){liveDemoIframe.src=LIVE_DEMO_URL;liveDemoModal.classList
 function closeLiveDemo(){liveDemoModal.classList.remove('show');setTimeout(()=>{liveDemoIframe.src="";},300);}
 document.getElementById('btnCV').onclick=()=>cvModal.classList.add('show');document.getElementById('closeCV').onclick=()=>cvModal.classList.remove('show');cvModal.onclick=e=>{if(e.target===cvModal)cvModal.classList.remove('show')};
 document.getElementById('btnSertif').onclick=()=>sertifModal.classList.add('show');document.getElementById('closeSertif').onclick=()=>sertifModal.classList.remove('show');sertifModal.onclick=e=>{if(e.target===sertifModal)sertifModal.classList.remove('show')};
-document.getElementById('btnSurat').onclick=()=>suratModal.classList.add('show');document.getElementById('closeSurat').onclick=()=>suratModal.classList.remove('show');suratModal.onclick=e=>{if(e.target===suratModal)suratModal.classList.remove('show')};
+document.getElementById('btnSurat').onclick=()=>openSuratFix();document.getElementById('closeSurat').onclick=()=>closeSuratFix();suratModal.onclick=e=>{if(e.target===suratModal)closeSuratFix()};
 document.getElementById('openCase').onclick=()=>caseModal.classList.add('show');document.getElementById('closeCase').onclick=()=>caseModal.classList.remove('show');caseModal.onclick=e=>{if(e.target===caseModal)caseModal.classList.remove('show')};
 document.getElementById('openCase2').onclick=()=>caseModal2.classList.add('show');document.getElementById('closeCase2').onclick=()=>caseModal2.classList.remove('show');caseModal2.onclick=e=>{if(e.target===caseModal2)caseModal2.classList.remove('show')};
 document.getElementById('openLiveDemo').onclick=openLiveDemo;
 document.getElementById('btnLiveFromCase').onclick=()=>{caseModal.classList.remove('show');setTimeout(openLiveDemo,200);};
 document.getElementById('closeLiveDemo').onclick=closeLiveDemo;liveDemoModal.onclick=e=>{if(e.target===liveDemoModal)closeLiveDemo()};
 function closeAllExpModals(){expDetailModal.classList.remove('show');document.getElementById('projDocModal').classList.remove('show');}
-document.getElementById('openExpDetail').onclick=()=>{stopWiringSlide();closeAllExpModals();document.getElementById('expDetailView').style.display='block';document.getElementById('expProjDocView').style.display='none';document.getElementById('expDetailTitle').textContent='Electrical Engineering Intern - PT Phase Delta Control (PDC)';expDetailModal.classList.add('show');};
-document.getElementById('closeExpDetail').onclick=()=>{stopWiringSlide();expDetailModal.classList.remove('show');};
-expDetailModal.onclick=e=>{if(e.target===expDetailModal){stopWiringSlide();expDetailModal.classList.remove('show');}};
+document.getElementById('openExpDetail').onclick=()=>{stopWiringSlide();closeAllExpModals();closeSuratFix();document.getElementById('expDetailView').style.display='block';document.getElementById('expProjDocView').style.display='none';document.getElementById('expDetailTitle').textContent='Electrical Engineering Intern - PT Phase Delta Control (PDC)';expDetailModal.classList.add('show');expDetailModal.style.display='flex';};
+document.getElementById('closeExpDetail').onclick=()=>{stopWiringSlide();expDetailModal.classList.remove('show');expDetailModal.style.display='none';};
+expDetailModal.onclick=e=>{if(e.target===expDetailModal){stopWiringSlide();expDetailModal.classList.remove('show');expDetailModal.style.display='none';}};
 const projDocModal=document.getElementById('projDocModal');
 document.getElementById('openProjDoc').onclick=()=>{stopWiringSlide();document.getElementById('projDocRightInfo').style.display='block';document.getElementById('wiringSlideWrap').style.display='none';document.querySelectorAll('.doc-btn').forEach(b=>b.classList.remove('active'));document.getElementById('expDetailView').style.display='none';document.getElementById('expProjDocView').style.display='block';document.getElementById('expDetailTitle').textContent='Project & Documentation';};
 document.getElementById('backExpDetail').onclick=()=>{stopWiringSlide();document.getElementById('projDocRightInfo').style.display='block';document.getElementById('wiringSlideWrap').style.display='none';document.querySelectorAll('.doc-btn').forEach(b=>b.classList.remove('active'));document.getElementById('expProjDocView').style.display='none';document.getElementById('expDetailView').style.display='block';document.getElementById('expDetailTitle').textContent='Electrical Engineering Intern - PT Phase Delta Control (PDC)';};
